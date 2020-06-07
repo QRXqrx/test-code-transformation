@@ -1,0 +1,1364 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<coverage
+        xmlns='http://java.sun.com/jcov/namespace'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xsi:schemaLocation='http://java.sun.com/jcov/namespace coverage.xsd'>
+
+	<head>
+		<property name='coverage.generator.args' val=''/>
+		<property name='coverage.generator.mode' val='BRANCH'/>
+		<property name='coverage.generator.internal' val='include'/>
+		<property name='coverage.generator.include' val=''/>
+		<property name='coverage.generator.exclude' val=''/>
+		<property name='coverage.generator.caller_include' val='.*'/>
+		<property name='coverage.generator.caller_exclude' val=''/>
+		<property name='coverage.created.date' val='2018-06-09'/>
+		<property name='coverage.created.time' val='03:58:13'/>
+		<property name='coverage.generator.fullversion' val='3.0os.beta-2 built: 10 March 2018'/>
+		<property name='coverage.generator.name' val='jcov'/>
+		<property name='coverage.generator.version' val='3.0'/>
+		<property name='coverage.spec.version' val='1.3'/>
+		<property name='java.runtime.version' val='1.8.0_131-b11'/>
+		<property name='java.version' val='1.8.0_131'/>
+		<property name='os.arch' val='amd64'/>
+		<property name='os.name' val='Windows 10'/>
+		<property name='os.version' val='10.0'/>
+		<property name='user.name' val='adn55'/>
+		<property name='dynamic.collected' val='false'/>
+		<property name='id.count' val='334'/>
+	</head>
+	<package name="net.mooctest" moduleName="no_module">
+		<class name="AbstractBinaryTree" supername="java/lang/Object" checksum="4183810731" source="AbstractBinaryTree.java" flags=' public abstract'>
+			<meth name="&lt;init&gt;" vmsig="()V" flags=' public' access="1" cons="true" length="5">
+				<bl s="0" e="4">
+					<methenter s="0" e="4" id="0" count="3"/>
+					<exit s="4" e="4" opcode="return"/>
+				</bl>
+				<lt>0=3;</lt>
+			</meth>
+			<meth name="search" vmsig="(I)Lnet/mooctest/Node;" flags=' public' access="1" length="56">
+				<bl s="0" e="4">
+					<methenter s="0" e="4" id="1" count="4011"/>
+				</bl>
+				<bl s="5" e="8">
+					<fall s="5" e="8" id="12" count="4011"/>
+					<br s="6" e="8">
+						<cond s="54" e="55" id="2" count="3" val="true"/>
+						<cond s="9" e="15" id="3" count="140431" val="false"/>
+					</br>
+				</bl>
+				<bl s="9" e="15">
+					<br s="13" e="15">
+						<cond s="54" e="55" id="4" count="0" val="true"/>
+						<cond s="16" e="26" id="5" count="140431" val="false"/>
+					</br>
+				</bl>
+				<bl s="16" e="26">
+					<br s="24" e="26">
+						<cond s="54" e="55" id="6" count="4008" val="true"/>
+						<cond s="27" e="37" id="7" count="136423" val="false"/>
+					</br>
+				</bl>
+				<bl s="27" e="37">
+					<br s="35" e="37">
+						<cond s="46" e="53" id="8" count="67323" val="true"/>
+						<cond s="38" e="45" id="9" count="69100" val="false"/>
+					</br>
+				</bl>
+				<bl s="38" e="45">
+					<goto s="43" e="45">
+						<tg s="5" e="8" id="10" count="69100"/>
+					</goto>
+				</bl>
+				<bl s="46" e="53">
+					<goto s="51" e="53">
+						<tg s="5" e="8" id="11" count="67323"/>
+					</goto>
+				</bl>
+				<bl s="54" e="55">
+					<exit s="55" e="55" opcode="areturn"/>
+				</bl>
+				<lt>0=36;5=37;27=38;38=39;46=41;54=44;</lt>
+			</meth>
+			<meth name="insert" vmsig="(I)Lnet/mooctest/Node;" flags=' public' access="1" length="137">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="13" count="3003"/>
+					<br s="4" e="6">
+						<cond s="34" e="40" id="14" count="3000" val="true"/>
+						<cond s="7" e="33" id="15" count="3" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="33">
+					<exit s="33" e="33" opcode="areturn"/>
+				</bl>
+				<bl s="34" e="40">
+				</bl>
+				<bl s="41" e="44">
+					<fall s="41" e="44" id="27" count="3000"/>
+					<br s="42" e="44">
+						<cond s="81" e="108" id="16" count="1002" val="true"/>
+						<cond s="45" e="51" id="17" count="157462" val="false"/>
+					</br>
+				</bl>
+				<bl s="45" e="51">
+					<br s="49" e="51">
+						<cond s="81" e="108" id="18" count="1998" val="true"/>
+						<cond s="52" e="64" id="19" count="155464" val="false"/>
+					</br>
+				</bl>
+				<bl s="52" e="64">
+					<br s="62" e="64">
+						<cond s="73" e="80" id="20" count="77732" val="true"/>
+						<cond s="65" e="72" id="21" count="77732" val="false"/>
+					</br>
+				</bl>
+				<bl s="65" e="72">
+					<goto s="70" e="72">
+						<tg s="41" e="44" id="22" count="77732"/>
+					</goto>
+				</bl>
+				<bl s="73" e="80">
+					<goto s="78" e="80">
+						<tg s="41" e="44" id="23" count="77732"/>
+					</goto>
+				</bl>
+				<bl s="81" e="108">
+					<br s="106" e="108">
+						<cond s="118" e="123" id="24" count="1500" val="true"/>
+						<cond s="109" e="117" id="25" count="1500" val="false"/>
+					</br>
+				</bl>
+				<bl s="109" e="117">
+					<goto s="115" e="117">
+						<tg s="124" e="136" id="26" count="1500"/>
+					</goto>
+				</bl>
+				<bl s="118" e="123">
+				</bl>
+				<bl s="124" e="136">
+					<fall s="124" e="136" id="28" count="1500"/>
+					<exit s="136" e="136" opcode="areturn"/>
+				</bl>
+				<lt>0=54;7=55;19=56;29=57;34=60;36=61;41=62;52=63;54=64;65=65;73=67;81=71;91=72;109=73;118=75;124=78;134=79;</lt>
+			</meth>
+			<meth name="delete" vmsig="(I)Lnet/mooctest/Node;" flags=' public' access="1" length="18">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="29" count="2005"/>
+					<br s="7" e="9">
+						<cond s="16" e="17" id="30" count="2" val="true"/>
+						<cond s="10" e="15" id="31" count="2003" val="false"/>
+					</br>
+				</bl>
+				<bl s="10" e="15">
+					<exit s="15" e="15" opcode="areturn"/>
+				</bl>
+				<bl s="16" e="17">
+					<exit s="17" e="17" opcode="areturn"/>
+				</bl>
+				<lt>0=92;6=93;10=94;16=96;</lt>
+			</meth>
+			<meth name="delete" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="132">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="32" count="1004"/>
+					<br s="1" e="3">
+						<cond s="130" e="131" id="33" count="1" val="true"/>
+						<cond s="4" e="9" id="34" count="1003" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="9">
+					<br s="7" e="9">
+						<cond s="128" e="129" id="35" count="0" val="true"/>
+						<cond s="10" e="16" id="36" count="1003" val="false"/>
+					</br>
+				</bl>
+				<bl s="10" e="16">
+					<br s="14" e="16">
+						<cond s="30" e="36" id="37" count="505" val="true"/>
+						<cond s="17" e="29" id="38" count="498" val="false"/>
+					</br>
+				</bl>
+				<bl s="17" e="29">
+					<goto s="27" e="29">
+						<tg s="118" e="127" id="39" count="498"/>
+					</goto>
+				</bl>
+				<bl s="30" e="36">
+					<br s="34" e="36">
+						<cond s="50" e="66" id="40" count="21" val="true"/>
+						<cond s="37" e="49" id="41" count="484" val="false"/>
+					</br>
+				</bl>
+				<bl s="37" e="49">
+					<goto s="47" e="49">
+						<tg s="118" e="127" id="42" count="484"/>
+					</goto>
+				</bl>
+				<bl s="50" e="66">
+					<br s="64" e="66">
+						<cond s="93" e="117" id="43" count="8" val="true"/>
+						<cond s="67" e="92" id="44" count="13" val="false"/>
+					</br>
+				</bl>
+				<bl s="67" e="92">
+				</bl>
+				<bl s="93" e="117">
+					<fall s="93" e="117" id="45" count="13"/>
+				</bl>
+				<bl s="118" e="127">
+					<fall s="118" e="127" id="46" count="21"/>
+				</bl>
+				<bl s="128" e="129">
+					<fall s="128" e="129" id="47" count="1003"/>
+					<exit s="129" e="129" opcode="areturn"/>
+				</bl>
+				<bl s="130" e="131">
+					<exit s="131" e="131" opcode="areturn"/>
+				</bl>
+				<lt>0=110;4=111;6=112;10=113;17=114;30=115;37=116;50=118;59=119;67=120;77=121;85=122;93=124;100=125;108=126;116=127;118=129;128=132;130=134;</lt>
+			</meth>
+			<meth name="transplant" vmsig="(Lnet/mooctest/Node;Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' private' access="2" length="59">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="48" count="1016"/>
+					<br s="4" e="6">
+						<cond s="15" e="25" id="49" count="1008" val="true"/>
+						<cond s="7" e="14" id="50" count="8" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="14">
+					<goto s="12" e="14">
+						<tg s="45" e="48" id="51" count="8"/>
+					</goto>
+				</bl>
+				<bl s="15" e="25">
+					<br s="23" e="25">
+						<cond s="37" e="44" id="52" count="503" val="true"/>
+						<cond s="26" e="36" id="53" count="505" val="false"/>
+					</br>
+				</bl>
+				<bl s="26" e="36">
+					<goto s="34" e="36">
+						<tg s="45" e="48" id="54" count="505"/>
+					</goto>
+				</bl>
+				<bl s="37" e="44">
+				</bl>
+				<bl s="45" e="48">
+					<fall s="45" e="48" id="57" count="503"/>
+					<br s="46" e="48">
+						<cond s="57" e="58" id="55" count="29" val="true"/>
+						<cond s="49" e="56" id="56" count="987" val="false"/>
+					</br>
+				</bl>
+				<bl s="49" e="56">
+				</bl>
+				<bl s="57" e="58">
+					<fall s="57" e="58" id="58" count="987"/>
+					<exit s="58" e="58" opcode="areturn"/>
+				</bl>
+				<lt>0=148;7=149;15=150;26=151;37=153;45=155;49=156;57=158;</lt>
+			</meth>
+			<meth name="contains" vmsig="(I)Z" flags=' public' access="1" length="14">
+				<bl s="0" e="7">
+					<methenter s="0" e="7" id="59" count="2004"/>
+					<br s="5" e="7">
+						<cond s="12" e="12" id="60" count="1" val="true"/>
+						<cond s="8" e="11" id="61" count="2003" val="false"/>
+					</br>
+				</bl>
+				<bl s="8" e="11">
+					<goto s="9" e="11">
+						<tg s="13" e="13" id="62" count="2003"/>
+					</goto>
+				</bl>
+				<bl s="12" e="12">
+				</bl>
+				<bl s="13" e="13">
+					<fall s="13" e="13" id="63" count="1"/>
+					<exit s="13" e="13" opcode="ireturn"/>
+				</bl>
+				<lt>0=166;</lt>
+			</meth>
+			<meth name="getMinimum" vmsig="()I" flags=' public' access="1" length="15">
+				<bl s="0" e="14">
+					<methenter s="0" e="14" id="64" count="3"/>
+					<exit s="14" e="14" opcode="ireturn"/>
+				</bl>
+				<lt>0=173;</lt>
+			</meth>
+			<meth name="getMaximum" vmsig="()I" flags=' public' access="1" length="15">
+				<bl s="0" e="14">
+					<methenter s="0" e="14" id="65" count="3"/>
+					<exit s="14" e="14" opcode="ireturn"/>
+				</bl>
+				<lt>0=180;</lt>
+			</meth>
+			<meth name="getSuccessor" vmsig="(I)I" flags=' public' access="1" length="16">
+				<bl s="0" e="15">
+					<methenter s="0" e="15" id="66" count="1"/>
+					<exit s="15" e="15" opcode="ireturn"/>
+				</bl>
+				<lt>0=192;</lt>
+			</meth>
+			<meth name="getSize" vmsig="()I" flags=' public' access="1" length="5">
+				<bl s="0" e="4">
+					<methenter s="0" e="4" id="67" count="5"/>
+					<exit s="4" e="4" opcode="ireturn"/>
+				</bl>
+				<lt>0=199;</lt>
+			</meth>
+			<meth name="printTreeInOrder" vmsig="()V" flags=' public' access="1" length="9">
+				<bl s="0" e="8">
+					<methenter s="0" e="8" id="68" count="1"/>
+					<exit s="8" e="8" opcode="return"/>
+				</bl>
+				<lt>0=206;8=207;</lt>
+			</meth>
+			<meth name="printTreePreOrder" vmsig="()V" flags=' public' access="1" length="9">
+				<bl s="0" e="8">
+					<methenter s="0" e="8" id="69" count="1"/>
+					<exit s="8" e="8" opcode="return"/>
+				</bl>
+				<lt>0=213;8=214;</lt>
+			</meth>
+			<meth name="printTreePostOrder" vmsig="()V" flags=' public' access="1" length="9">
+				<bl s="0" e="8">
+					<methenter s="0" e="8" id="70" count="1"/>
+					<exit s="8" e="8" opcode="return"/>
+				</bl>
+				<lt>0=220;8=221;</lt>
+			</meth>
+			<meth name="printTreeInOrder" vmsig="(Lnet/mooctest/Node;)V" flags=' private' access="2" length="38">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="71" count="12007"/>
+					<br s="1" e="3">
+						<cond s="37" e="37" id="72" count="6006" val="true"/>
+						<cond s="4" e="18" id="73" count="6001" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="18">
+					<br s="16" e="18">
+						<cond s="29" e="36" id="74" count="3003" val="true"/>
+						<cond s="19" e="28" id="75" count="2998" val="false"/>
+					</br>
+				</bl>
+				<bl s="19" e="28">
+				</bl>
+				<bl s="29" e="36">
+					<fall s="29" e="36" id="76" count="2998"/>
+				</bl>
+				<bl s="37" e="37">
+					<fall s="37" e="37" id="77" count="6001"/>
+					<exit s="37" e="37" opcode="return"/>
+				</bl>
+				<lt>0=226;4=227;12=228;19=229;29=231;37=233;</lt>
+			</meth>
+			<meth name="printTreePreOrder" vmsig="(Lnet/mooctest/Node;)V" flags=' private' access="2" length="38">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="78" count="1"/>
+					<br s="1" e="3">
+						<cond s="37" e="37" id="79" count="0" val="true"/>
+						<cond s="4" e="10" id="80" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="10">
+					<br s="8" e="10">
+						<cond s="21" e="36" id="81" count="0" val="true"/>
+						<cond s="11" e="20" id="82" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="11" e="20">
+				</bl>
+				<bl s="21" e="36">
+					<fall s="21" e="36" id="83" count="1"/>
+				</bl>
+				<bl s="37" e="37">
+					<fall s="37" e="37" id="84" count="1"/>
+					<exit s="37" e="37" opcode="return"/>
+				</bl>
+				<lt>0=236;4=237;11=238;21=240;29=241;37=243;</lt>
+			</meth>
+			<meth name="printTreePostOrder" vmsig="(Lnet/mooctest/Node;)V" flags=' private' access="2" length="38">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="85" count="1"/>
+					<br s="1" e="3">
+						<cond s="37" e="37" id="86" count="0" val="true"/>
+						<cond s="4" e="26" id="87" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="26">
+					<br s="24" e="26">
+						<cond s="37" e="37" id="88" count="0" val="true"/>
+						<cond s="27" e="36" id="89" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="27" e="36">
+				</bl>
+				<bl s="37" e="37">
+					<fall s="37" e="37" id="90" count="1"/>
+					<exit s="37" e="37" opcode="return"/>
+				</bl>
+				<lt>0=246;4=247;12=248;20=249;27=250;37=253;</lt>
+			</meth>
+			<meth name="getMinimum" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="17">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="91" count="23"/>
+					<br s="4" e="6">
+						<cond s="15" e="16" id="92" count="23" val="true"/>
+						<cond s="7" e="14" id="93" count="1057" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="14">
+					<goto s="12" e="14">
+						<tg s="0" e="6" id="94" count="1057"/>
+					</goto>
+				</bl>
+				<bl s="15" e="16">
+					<exit s="16" e="16" opcode="areturn"/>
+				</bl>
+				<lt>0=256;7=257;15=259;</lt>
+			</meth>
+			<meth name="getMaximum" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="17">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="95" count="1"/>
+					<br s="4" e="6">
+						<cond s="15" e="16" id="96" count="1" val="true"/>
+						<cond s="7" e="14" id="97" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="14">
+					<goto s="12" e="14">
+						<tg s="0" e="6" id="98" count="2"/>
+					</goto>
+				</bl>
+				<bl s="15" e="16">
+					<exit s="16" e="16" opcode="areturn"/>
+				</bl>
+				<lt>0=263;7=264;15=266;</lt>
+			</meth>
+			<meth name="getSuccessor" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="47">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="99" count="2"/>
+					<br s="4" e="6">
+						<cond s="16" e="22" id="100" count="1" val="true"/>
+						<cond s="7" e="15" id="101" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="15">
+					<exit s="15" e="15" opcode="areturn"/>
+				</bl>
+				<bl s="16" e="22">
+				</bl>
+				<bl s="23" e="26">
+					<fall s="23" e="26" id="107" count="1"/>
+					<br s="24" e="26">
+						<cond s="45" e="46" id="102" count="1" val="true"/>
+						<cond s="27" e="34" id="103" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="27" e="34">
+					<br s="32" e="34">
+						<cond s="45" e="46" id="104" count="0" val="true"/>
+						<cond s="35" e="44" id="105" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="35" e="44">
+					<goto s="42" e="44">
+						<tg s="23" e="26" id="106" count="2"/>
+					</goto>
+				</bl>
+				<bl s="45" e="46">
+					<exit s="46" e="46" opcode="areturn"/>
+				</bl>
+				<lt>0=272;7=273;16=276;18=277;23=278;35=281;37=282;45=284;</lt>
+			</meth>
+			<meth name="printTree" vmsig="()V" flags=' public' access="1" length="9">
+				<bl s="0" e="8">
+					<methenter s="0" e="8" id="108" count="1"/>
+					<exit s="8" e="8" opcode="return"/>
+				</bl>
+				<lt>0=289;8=290;</lt>
+			</meth>
+			<meth name="printSubtree" vmsig="(Lnet/mooctest/Node;)V" flags=' public' access="1" length="42">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="109" count="2"/>
+					<br s="4" e="6">
+						<cond s="18" e="29" id="110" count="1" val="true"/>
+						<cond s="7" e="17" id="111" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="17">
+				</bl>
+				<bl s="18" e="29">
+					<fall s="18" e="29" id="114" count="1"/>
+					<br s="27" e="29">
+						<cond s="41" e="41" id="112" count="1" val="true"/>
+						<cond s="30" e="40" id="113" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="30" e="40">
+				</bl>
+				<bl s="41" e="41">
+					<fall s="41" e="41" id="115" count="1"/>
+					<exit s="41" e="41" opcode="return"/>
+				</bl>
+				<lt>0=293;7=294;18=296;23=297;30=298;41=300;</lt>
+			</meth>
+			<meth name="printNodeValue" vmsig="(Lnet/mooctest/Node;)V" flags=' private' access="2" length="38">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="116" count="1004"/>
+					<br s="4" e="6">
+						<cond s="18" e="30" id="117" count="1003" val="true"/>
+						<cond s="7" e="17" id="118" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="17">
+					<goto s="15" e="17">
+						<tg s="31" e="37" id="119" count="1"/>
+					</goto>
+				</bl>
+				<bl s="18" e="30">
+				</bl>
+				<bl s="31" e="37">
+					<fall s="31" e="37" id="120" count="1003"/>
+					<exit s="37" e="37" opcode="return"/>
+				</bl>
+				<lt>0=303;7=304;18=306;31=308;37=309;</lt>
+			</meth>
+			<meth name="printTree" vmsig="(Lnet/mooctest/Node;ZLjava/lang/String;)V" flags=' private' access="2" length="132">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="121" count="1002"/>
+					<br s="4" e="6">
+						<cond s="44" e="54" id="122" count="502" val="true"/>
+						<cond s="7" e="27" id="123" count="500" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="27">
+					<br s="25" e="27">
+						<cond s="33" e="34" id="124" count="2" val="true"/>
+						<cond s="28" e="32" id="125" count="498" val="false"/>
+					</br>
+				</bl>
+				<bl s="28" e="32">
+					<goto s="30" e="32">
+						<tg s="35" e="43" id="126" count="498"/>
+					</goto>
+				</bl>
+				<bl s="33" e="34">
+				</bl>
+				<bl s="35" e="43">
+					<fall s="35" e="43" id="135" count="2"/>
+				</bl>
+				<bl s="44" e="54">
+					<fall s="44" e="54" id="136" count="500"/>
+					<br s="52" e="54">
+						<cond s="66" e="73" id="127" count="501" val="true"/>
+						<cond s="55" e="65" id="128" count="501" val="false"/>
+					</br>
+				</bl>
+				<bl s="55" e="65">
+					<goto s="63" e="65">
+						<tg s="74" e="93" id="129" count="501"/>
+					</goto>
+				</bl>
+				<bl s="66" e="73">
+				</bl>
+				<bl s="74" e="93">
+					<fall s="74" e="93" id="137" count="501"/>
+					<br s="91" e="93">
+						<cond s="131" e="131" id="130" count="502" val="true"/>
+						<cond s="94" e="114" id="131" count="500" val="false"/>
+					</br>
+				</bl>
+				<bl s="94" e="114">
+					<br s="112" e="114">
+						<cond s="120" e="121" id="132" count="498" val="true"/>
+						<cond s="115" e="119" id="133" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="115" e="119">
+					<goto s="117" e="119">
+						<tg s="122" e="130" id="134" count="2"/>
+					</goto>
+				</bl>
+				<bl s="120" e="121">
+				</bl>
+				<bl s="122" e="130">
+					<fall s="122" e="130" id="138" count="498"/>
+				</bl>
+				<bl s="131" e="131">
+					<fall s="131" e="131" id="139" count="500"/>
+					<exit s="131" e="131" opcode="return"/>
+				</bl>
+				<lt>0=312;7=313;44=315;51=316;55=317;66=319;74=321;82=322;87=323;94=324;131=326;</lt>
+			</meth>
+			<meth name="rotateLeft" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="93">
+				<bl s="0" e="27">
+					<methenter s="0" e="27" id="140" count="3"/>
+					<br s="25" e="27">
+						<cond s="36" e="52" id="141" count="1" val="true"/>
+						<cond s="28" e="35" id="142" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="28" e="35">
+				</bl>
+				<bl s="36" e="52">
+					<fall s="36" e="52" id="149" count="2"/>
+					<br s="50" e="52">
+						<cond s="86" e="90" id="143" count="1" val="true"/>
+						<cond s="53" e="63" id="144" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="53" e="63">
+					<br s="61" e="63">
+						<cond s="75" e="85" id="145" count="1" val="true"/>
+						<cond s="64" e="74" id="146" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="64" e="74">
+					<goto s="72" e="74">
+						<tg s="91" e="92" id="147" count="1"/>
+					</goto>
+				</bl>
+				<bl s="75" e="85">
+					<goto s="83" e="85">
+						<tg s="91" e="92" id="148" count="1"/>
+					</goto>
+				</bl>
+				<bl s="86" e="90">
+				</bl>
+				<bl s="91" e="92">
+					<fall s="91" e="92" id="150" count="1"/>
+					<exit s="92" e="92" opcode="areturn"/>
+				</bl>
+				<lt>0=336;5=337;13=339;21=340;28=341;36=344;41=345;46=348;53=349;64=350;75=352;86=355;91=358;</lt>
+			</meth>
+			<meth name="rotateRight" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="93">
+				<bl s="0" e="27">
+					<methenter s="0" e="27" id="151" count="3"/>
+					<br s="25" e="27">
+						<cond s="36" e="52" id="152" count="1" val="true"/>
+						<cond s="28" e="35" id="153" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="28" e="35">
+				</bl>
+				<bl s="36" e="52">
+					<fall s="36" e="52" id="160" count="2"/>
+					<br s="50" e="52">
+						<cond s="86" e="90" id="154" count="1" val="true"/>
+						<cond s="53" e="63" id="155" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="53" e="63">
+					<br s="61" e="63">
+						<cond s="75" e="85" id="156" count="1" val="true"/>
+						<cond s="64" e="74" id="157" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="64" e="74">
+					<goto s="72" e="74">
+						<tg s="91" e="92" id="158" count="1"/>
+					</goto>
+				</bl>
+				<bl s="75" e="85">
+					<goto s="83" e="85">
+						<tg s="91" e="92" id="159" count="1"/>
+					</goto>
+				</bl>
+				<bl s="86" e="90">
+				</bl>
+				<bl s="91" e="92">
+					<fall s="91" e="92" id="161" count="1"/>
+					<exit s="92" e="92" opcode="areturn"/>
+				</bl>
+				<lt>0=369;5=370;13=372;21=373;28=374;36=377;41=378;46=381;53=382;64=383;75=385;86=388;91=391;</lt>
+			</meth>
+		</class>
+		<class name="Node" supername="java/lang/Object" checksum="1095880127" source="Node.java" flags=' public'>
+			<meth name="&lt;init&gt;" vmsig="(Ljava/lang/Integer;Lnet/mooctest/Node;Lnet/mooctest/Node;Lnet/mooctest/Node;)V" flags=' public' access="1" cons="true" length="26">
+				<bl s="0" e="25">
+					<methenter s="0" e="25" id="162" count="3018"/>
+					<exit s="25" e="25" opcode="return"/>
+				</bl>
+				<lt>0=5;4=6;9=7;14=8;19=9;25=10;</lt>
+			</meth>
+			<meth name="isLeaf" vmsig="()Z" flags=' public' access="1" length="20">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="163" count="3"/>
+					<br s="4" e="6">
+						<cond s="18" e="18" id="164" count="1" val="true"/>
+						<cond s="7" e="13" id="165" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="7" e="13">
+					<br s="11" e="13">
+						<cond s="18" e="18" id="166" count="1" val="true"/>
+						<cond s="14" e="17" id="167" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="14" e="17">
+					<goto s="15" e="17">
+						<tg s="19" e="19" id="168" count="1"/>
+					</goto>
+				</bl>
+				<bl s="18" e="18">
+				</bl>
+				<bl s="19" e="19">
+					<fall s="19" e="19" id="169" count="2"/>
+					<exit s="19" e="19" opcode="ireturn"/>
+				</bl>
+				<lt>0=18;</lt>
+			</meth>
+			<meth name="hashCode" vmsig="()I" flags=' public' access="1" length="31">
+				<bl s="0" e="15">
+					<methenter s="0" e="15" id="170" count="1000"/>
+					<br s="13" e="15">
+						<cond s="20" e="26" id="171" count="1000" val="true"/>
+						<cond s="16" e="19" id="172" count="0" val="false"/>
+					</br>
+				</bl>
+				<bl s="16" e="19">
+					<goto s="17" e="19">
+						<tg s="27" e="30" id="173" count="0"/>
+					</goto>
+				</bl>
+				<bl s="20" e="26">
+				</bl>
+				<bl s="27" e="30">
+					<fall s="27" e="30" id="174" count="1000"/>
+					<exit s="30" e="30" opcode="ireturn"/>
+				</bl>
+				<lt>0=23;3=24;5=25;29=26;</lt>
+			</meth>
+			<meth name="equals" vmsig="(Ljava/lang/Object;)Z" flags=' public' access="1" length="65">
+				<bl s="0" e="4">
+					<methenter s="0" e="4" id="175" count="1005"/>
+					<br s="2" e="4">
+						<cond s="7" e="10" id="176" count="5" val="true"/>
+						<cond s="5" e="6" id="177" count="1000" val="false"/>
+					</br>
+				</bl>
+				<bl s="5" e="6">
+					<exit s="6" e="6" opcode="ireturn"/>
+				</bl>
+				<bl s="7" e="10">
+					<br s="8" e="10">
+						<cond s="13" e="23" id="178" count="4" val="true"/>
+						<cond s="11" e="12" id="179" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="11" e="12">
+					<exit s="12" e="12" opcode="ireturn"/>
+				</bl>
+				<bl s="13" e="23">
+					<br s="21" e="23">
+						<cond s="26" e="37" id="180" count="3" val="true"/>
+						<cond s="24" e="25" id="181" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="24" e="25">
+					<exit s="25" e="25" opcode="ireturn"/>
+				</bl>
+				<bl s="26" e="37">
+					<br s="35" e="37">
+						<cond s="47" e="60" id="182" count="1" val="true"/>
+						<cond s="38" e="44" id="183" count="2" val="false"/>
+					</br>
+				</bl>
+				<bl s="38" e="44">
+					<br s="42" e="44">
+						<cond s="63" e="64" id="184" count="1" val="true"/>
+						<cond s="45" e="46" id="185" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="45" e="46">
+					<exit s="46" e="46" opcode="ireturn"/>
+				</bl>
+				<bl s="47" e="60">
+					<br s="58" e="60">
+						<cond s="63" e="64" id="186" count="0" val="true"/>
+						<cond s="61" e="62" id="187" count="1" val="false"/>
+					</br>
+				</bl>
+				<bl s="61" e="62">
+					<exit s="62" e="62" opcode="ireturn"/>
+				</bl>
+				<bl s="63" e="64">
+					<exit s="64" e="64" opcode="ireturn"/>
+				</bl>
+				<lt>0=31;5=32;7=33;11=34;13=35;24=36;26=37;31=38;38=39;45=40;47=41;61=42;63=43;</lt>
+			</meth>
+		</class>
+		<class name="RedBlackTree" supername="net/mooctest/AbstractBinaryTree" checksum="2300838201" source="RedBlackTree.java" flags=' public'>
+			<meth name="&lt;init&gt;" vmsig="()V" flags=' public' access="1" cons="true" length="5">
+				<bl s="0" e="4">
+					<methenter s="0" e="4" id="193" count="2"/>
+					<exit s="4" e="4" opcode="return"/>
+				</bl>
+				<lt>0=3;</lt>
+			</meth>
+			<meth name="insert" vmsig="(I)Lnet/mooctest/Node;" flags=' public' access="1" length="40">
+				<bl s="0" e="39">
+					<methenter s="0" e="39" id="194" count="2000"/>
+					<exit s="39" e="39" opcode="areturn"/>
+				</bl>
+				<lt>0=16;6=17;13=18;20=19;30=20;38=21;</lt>
+			</meth>
+			<meth name="delete" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="210">
+				<bl s="0" e="5">
+					<methenter s="0" e="5" id="195" count="1000"/>
+					<br s="3" e="5">
+						<cond s="208" e="209" id="196" count="0" val="true"/>
+						<cond s="6" e="12" id="197" count="1000" val="false"/>
+					</br>
+				</bl>
+				<bl s="6" e="12">
+					<br s="10" e="12">
+						<cond s="208" e="209" id="198" count="0" val="true"/>
+						<cond s="13" e="33" id="199" count="1000" val="false"/>
+					</br>
+				</bl>
+				<bl s="13" e="33">
+					<br s="31" e="33">
+						<cond s="52" e="61" id="200" count="515" val="true"/>
+						<cond s="34" e="51" id="201" count="485" val="false"/>
+					</br>
+				</bl>
+				<bl s="34" e="51">
+					<goto s="49" e="51">
+						<tg s="182" e="199" id="202" count="485"/>
+					</goto>
+				</bl>
+				<bl s="52" e="61">
+					<br s="59" e="61">
+						<cond s="80" e="110" id="203" count="421" val="true"/>
+						<cond s="62" e="79" id="204" count="94" val="false"/>
+					</br>
+				</bl>
+				<bl s="62" e="79">
+					<goto s="77" e="79">
+						<tg s="182" e="199" id="205" count="94"/>
+					</goto>
+				</bl>
+				<bl s="80" e="110">
+					<br s="108" e="110">
+						<cond s="119" e="144" id="206" count="248" val="true"/>
+						<cond s="111" e="118" id="207" count="173" val="false"/>
+					</br>
+				</bl>
+				<bl s="111" e="118">
+					<goto s="116" e="118">
+						<tg s="145" e="181" id="208" count="173"/>
+					</goto>
+				</bl>
+				<bl s="119" e="144">
+				</bl>
+				<bl s="145" e="181">
+					<fall s="145" e="181" id="211" count="248"/>
+				</bl>
+				<bl s="182" e="199">
+					<fall s="182" e="199" id="212" count="421"/>
+					<br s="197" e="199">
+						<cond s="208" e="209" id="209" count="454" val="true"/>
+						<cond s="200" e="207" id="210" count="546" val="false"/>
+					</br>
+				</bl>
+				<bl s="200" e="207">
+				</bl>
+				<bl s="208" e="209">
+					<fall s="208" e="209" id="213" count="546"/>
+					<exit s="209" e="209" opcode="areturn"/>
+				</bl>
+				<lt>0=31;2=32;13=33;15=35;24=37;34=38;39=39;52=40;62=41;67=42;80=44;89=45;98=46;103=47;111=48;119=50;129=51;137=52;145=54;152=55;160=56;168=57;182=60;192=61;200=62;208=66;</lt>
+			</meth>
+			<meth name="createNode" vmsig="(ILnet/mooctest/Node;Lnet/mooctest/Node;Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="19">
+				<bl s="0" e="18">
+					<methenter s="0" e="18" id="214" count="2000"/>
+					<exit s="18" e="18" opcode="areturn"/>
+				</bl>
+				<lt>0=77;</lt>
+			</meth>
+			<meth name="getMinimum" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="20">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="215" count="423"/>
+					<br s="7" e="9">
+						<cond s="18" e="19" id="216" count="423" val="true"/>
+						<cond s="10" e="17" id="217" count="517" val="false"/>
+					</br>
+				</bl>
+				<bl s="10" e="17">
+					<goto s="15" e="17">
+						<tg s="0" e="9" id="218" count="517"/>
+					</goto>
+				</bl>
+				<bl s="18" e="19">
+					<exit s="19" e="19" opcode="areturn"/>
+				</bl>
+				<lt>0=85;10=86;18=88;</lt>
+			</meth>
+			<meth name="getMaximum" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="20">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="219" count="2"/>
+					<br s="7" e="9">
+						<cond s="18" e="19" id="220" count="2" val="true"/>
+						<cond s="10" e="17" id="221" count="24" val="false"/>
+					</br>
+				</bl>
+				<bl s="10" e="17">
+					<goto s="15" e="17">
+						<tg s="0" e="9" id="222" count="24"/>
+					</goto>
+				</bl>
+				<bl s="18" e="19">
+					<exit s="19" e="19" opcode="areturn"/>
+				</bl>
+				<lt>0=96;10=97;18=99;</lt>
+			</meth>
+			<meth name="rotateLeft" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="99">
+				<bl s="0" e="30">
+					<methenter s="0" e="30" id="223" count="1080"/>
+					<br s="28" e="30">
+						<cond s="39" e="58" id="224" count="552" val="true"/>
+						<cond s="31" e="38" id="225" count="528" val="false"/>
+					</br>
+				</bl>
+				<bl s="31" e="38">
+				</bl>
+				<bl s="39" e="58">
+					<fall s="39" e="58" id="232" count="528"/>
+					<br s="56" e="58">
+						<cond s="92" e="96" id="226" count="10" val="true"/>
+						<cond s="59" e="69" id="227" count="1070" val="false"/>
+					</br>
+				</bl>
+				<bl s="59" e="69">
+					<br s="67" e="69">
+						<cond s="81" e="91" id="228" count="1018" val="true"/>
+						<cond s="70" e="80" id="229" count="52" val="false"/>
+					</br>
+				</bl>
+				<bl s="70" e="80">
+					<goto s="78" e="80">
+						<tg s="97" e="98" id="230" count="52"/>
+					</goto>
+				</bl>
+				<bl s="81" e="91">
+					<goto s="89" e="91">
+						<tg s="97" e="98" id="231" count="1018"/>
+					</goto>
+				</bl>
+				<bl s="92" e="96">
+				</bl>
+				<bl s="97" e="98">
+					<fall s="97" e="98" id="233" count="10"/>
+					<exit s="98" e="98" opcode="areturn"/>
+				</bl>
+				<lt>0=107;5=108;13=110;21=111;31=112;39=115;44=116;49=119;59=120;70=121;81=123;92=126;97=129;</lt>
+			</meth>
+			<meth name="rotateRight" vmsig="(Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' protected' access="4" length="99">
+				<bl s="0" e="30">
+					<methenter s="0" e="30" id="234" count="1062"/>
+					<br s="28" e="30">
+						<cond s="39" e="58" id="235" count="542" val="true"/>
+						<cond s="31" e="38" id="236" count="520" val="false"/>
+					</br>
+				</bl>
+				<bl s="31" e="38">
+				</bl>
+				<bl s="39" e="58">
+					<fall s="39" e="58" id="243" count="520"/>
+					<br s="56" e="58">
+						<cond s="92" e="96" id="237" count="9" val="true"/>
+						<cond s="59" e="69" id="238" count="1053" val="false"/>
+					</br>
+				</bl>
+				<bl s="59" e="69">
+					<br s="67" e="69">
+						<cond s="81" e="91" id="239" count="46" val="true"/>
+						<cond s="70" e="80" id="240" count="1007" val="false"/>
+					</br>
+				</bl>
+				<bl s="70" e="80">
+					<goto s="78" e="80">
+						<tg s="97" e="98" id="241" count="1007"/>
+					</goto>
+				</bl>
+				<bl s="81" e="91">
+					<goto s="89" e="91">
+						<tg s="97" e="98" id="242" count="46"/>
+					</goto>
+				</bl>
+				<bl s="92" e="96">
+				</bl>
+				<bl s="97" e="98">
+					<fall s="97" e="98" id="244" count="9"/>
+					<exit s="98" e="98" opcode="areturn"/>
+				</bl>
+				<lt>0=137;5=138;13=140;21=141;31=142;39=145;44=146;49=149;59=150;70=151;81=153;92=156;97=159;</lt>
+			</meth>
+			<meth name="rbTreeTransplant" vmsig="(Lnet/mooctest/Node;Lnet/mooctest/Node;)Lnet/mooctest/Node;" flags=' private' access="2" length="58">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="245" count="1248"/>
+					<br s="7" e="9">
+						<cond s="18" e="28" id="246" count="1242" val="true"/>
+						<cond s="10" e="17" id="247" count="6" val="false"/>
+					</br>
+				</bl>
+				<bl s="10" e="17">
+					<goto s="15" e="17">
+						<tg s="48" e="57" id="248" count="6"/>
+					</goto>
+				</bl>
+				<bl s="18" e="28">
+					<br s="26" e="28">
+						<cond s="40" e="47" id="249" count="506" val="true"/>
+						<cond s="29" e="39" id="250" count="736" val="false"/>
+					</br>
+				</bl>
+				<bl s="29" e="39">
+					<goto s="37" e="39">
+						<tg s="48" e="57" id="251" count="736"/>
+					</goto>
+				</bl>
+				<bl s="40" e="47">
+				</bl>
+				<bl s="48" e="57">
+					<fall s="48" e="57" id="252" count="506"/>
+					<exit s="57" e="57" opcode="areturn"/>
+				</bl>
+				<lt>0=167;10=168;18=169;29=170;40=172;48=174;56=175;</lt>
+			</meth>
+			<meth name="deleteRBFixup" vmsig="(Lnet/mooctest/RedBlackTree$RedBlackNode;)V" flags=' private' access="2" length="492">
+				<bl s="0" e="7">
+					<methenter s="0" e="7" id="253" count="546"/>
+					<br s="5" e="7">
+						<cond s="491" e="491" id="254" count="44" val="true"/>
+						<cond s="8" e="15" id="255" count="1204" val="false"/>
+					</br>
+				</bl>
+				<bl s="8" e="15">
+					<br s="13" e="15">
+						<cond s="491" e="491" id="256" count="502" val="true"/>
+						<cond s="16" e="26" id="257" count="702" val="false"/>
+					</br>
+				</bl>
+				<bl s="16" e="26">
+					<br s="24" e="26">
+						<cond s="259" e="277" id="258" count="327" val="true"/>
+						<cond s="27" e="45" id="259" count="375" val="false"/>
+					</br>
+				</bl>
+				<bl s="27" e="45">
+					<br s="43" e="45">
+						<cond s="86" e="96" id="260" count="311" val="true"/>
+						<cond s="46" e="85" id="261" count="64" val="false"/>
+					</br>
+				</bl>
+				<bl s="46" e="85">
+				</bl>
+				<bl s="86" e="96">
+					<fall s="86" e="96" id="286" count="64"/>
+					<br s="94" e="96">
+						<cond s="126" e="132" id="262" count="82" val="true"/>
+						<cond s="97" e="107" id="263" count="293" val="false"/>
+					</br>
+				</bl>
+				<bl s="97" e="107">
+					<br s="105" e="107">
+						<cond s="126" e="132" id="264" count="7" val="true"/>
+						<cond s="108" e="125" id="265" count="286" val="false"/>
+					</br>
+				</bl>
+				<bl s="108" e="125">
+					<goto s="123" e="125">
+						<tg s="256" e="258" id="266" count="286"/>
+					</goto>
+				</bl>
+				<bl s="126" e="132">
+					<br s="130" e="132">
+						<cond s="241" e="255" id="267" count="65" val="true"/>
+						<cond s="133" e="143" id="268" count="24" val="false"/>
+					</br>
+				</bl>
+				<bl s="133" e="143">
+					<br s="141" e="143">
+						<cond s="181" e="240" id="269" count="12" val="true"/>
+						<cond s="144" e="180" id="270" count="12" val="false"/>
+					</br>
+				</bl>
+				<bl s="144" e="180">
+				</bl>
+				<bl s="181" e="240">
+					<fall s="181" e="240" id="287" count="12"/>
+					<goto s="238" e="240">
+						<tg s="256" e="258" id="271" count="24"/>
+					</goto>
+				</bl>
+				<bl s="241" e="255">
+				</bl>
+				<bl s="256" e="258">
+					<fall s="256" e="258" id="288" count="65"/>
+					<goto s="256" e="258">
+						<tg s="0" e="7" id="272" count="375"/>
+					</goto>
+				</bl>
+				<bl s="259" e="277">
+					<br s="275" e="277">
+						<cond s="318" e="328" id="273" count="278" val="true"/>
+						<cond s="278" e="317" id="274" count="49" val="false"/>
+					</br>
+				</bl>
+				<bl s="278" e="317">
+				</bl>
+				<bl s="318" e="328">
+					<fall s="318" e="328" id="289" count="49"/>
+					<br s="326" e="328">
+						<cond s="358" e="364" id="275" count="38" val="true"/>
+						<cond s="329" e="339" id="276" count="289" val="false"/>
+					</br>
+				</bl>
+				<bl s="329" e="339">
+					<br s="337" e="339">
+						<cond s="358" e="364" id="277" count="9" val="true"/>
+						<cond s="340" e="357" id="278" count="280" val="false"/>
+					</br>
+				</bl>
+				<bl s="340" e="357">
+					<goto s="355" e="357">
+						<tg s="488" e="490" id="279" count="280"/>
+					</goto>
+				</bl>
+				<bl s="358" e="364">
+					<br s="362" e="364">
+						<cond s="473" e="487" id="280" count="29" val="true"/>
+						<cond s="365" e="375" id="281" count="18" val="false"/>
+					</br>
+				</bl>
+				<bl s="365" e="375">
+					<br s="373" e="375">
+						<cond s="413" e="472" id="282" count="9" val="true"/>
+						<cond s="376" e="412" id="283" count="9" val="false"/>
+					</br>
+				</bl>
+				<bl s="376" e="412">
+				</bl>
+				<bl s="413" e="472">
+					<fall s="413" e="472" id="290" count="9"/>
+					<goto s="470" e="472">
+						<tg s="488" e="490" id="284" count="18"/>
+					</goto>
+				</bl>
+				<bl s="473" e="487">
+				</bl>
+				<bl s="488" e="490">
+					<fall s="488" e="490" id="291" count="29"/>
+					<goto s="488" e="490">
+						<tg s="0" e="7" id="285" count="327"/>
+					</goto>
+				</bl>
+				<bl s="491" e="491">
+					<exit s="491" e="491" opcode="return"/>
+				</bl>
+				<lt>0=182;16=184;27=185;38=186;46=187;53=188;66=189;75=190;86=193;108=194;115=195;126=196;133=197;144=199;157=200;164=201;170=202;181=204;195=205;208=206;221=207;230=208;241=210;248=211;256=213;259=214;270=215;278=216;285=217;298=218;307=219;318=222;340=223;347=224;358=225;365=226;376=227;389=228;396=229;402=230;413=232;427=233;440=234;453=235;462=236;473=238;480=239;488=241;491=244;</lt>
+			</meth>
+			<meth name="isBlack" vmsig="(Lnet/mooctest/Node;)Z" flags=' private' access="2" length="27">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="292" count="2530"/>
+					<br s="1" e="3">
+						<cond s="25" e="25" id="293" count="94" val="true"/>
+						<cond s="4" e="16" id="294" count="2436" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="16">
+					<br s="14" e="16">
+						<cond s="21" e="24" id="295" count="565" val="true"/>
+						<cond s="17" e="20" id="296" count="1871" val="false"/>
+					</br>
+				</bl>
+				<bl s="17" e="20">
+					<goto s="18" e="20">
+						<tg s="26" e="26" id="297" count="1871"/>
+					</goto>
+				</bl>
+				<bl s="21" e="24">
+					<goto s="22" e="24">
+						<tg s="26" e="26" id="298" count="565"/>
+					</goto>
+				</bl>
+				<bl s="25" e="25">
+				</bl>
+				<bl s="26" e="26">
+					<fall s="26" e="26" id="299" count="94"/>
+					<exit s="26" e="26" opcode="ireturn"/>
+				</bl>
+				<lt>0=247;</lt>
+			</meth>
+			<meth name="isRed" vmsig="(Lnet/mooctest/Node;)Z" flags=' private' access="2" length="27">
+				<bl s="0" e="3">
+					<methenter s="0" e="3" id="300" count="702"/>
+					<br s="1" e="3">
+						<cond s="25" e="25" id="301" count="0" val="true"/>
+						<cond s="4" e="16" id="302" count="702" val="false"/>
+					</br>
+				</bl>
+				<bl s="4" e="16">
+					<br s="14" e="16">
+						<cond s="21" e="24" id="303" count="589" val="true"/>
+						<cond s="17" e="20" id="304" count="113" val="false"/>
+					</br>
+				</bl>
+				<bl s="17" e="20">
+					<goto s="18" e="20">
+						<tg s="26" e="26" id="305" count="113"/>
+					</goto>
+				</bl>
+				<bl s="21" e="24">
+					<goto s="22" e="24">
+						<tg s="26" e="26" id="306" count="589"/>
+					</goto>
+				</bl>
+				<bl s="25" e="25">
+				</bl>
+				<bl s="26" e="26">
+					<fall s="26" e="26" id="307" count="0"/>
+					<exit s="26" e="26" opcode="ireturn"/>
+				</bl>
+				<lt>0=251;</lt>
+			</meth>
+			<meth name="insertRBFixup" vmsig="(Lnet/mooctest/RedBlackTree$RedBlackNode;)V" flags=' private' access="2" length="245">
+				<bl s="0" e="10">
+					<methenter s="0" e="10" id="308" count="2000"/>
+					<br s="8" e="10">
+						<cond s="231" e="244" id="309" count="32" val="true"/>
+						<cond s="11" e="26" id="310" count="5890" val="false"/>
+					</br>
+				</bl>
+				<bl s="11" e="26">
+					<br s="24" e="26">
+						<cond s="231" e="244" id="311" count="1968" val="true"/>
+						<cond s="27" e="50" id="312" count="3922" val="false"/>
+					</br>
+				</bl>
+				<bl s="27" e="50">
+					<br s="48" e="50">
+						<cond s="137" e="144" id="313" count="1961" val="true"/>
+						<cond s="51" e="70" id="314" count="1961" val="false"/>
+					</br>
+				</bl>
+				<bl s="51" e="70">
+					<br s="68" e="70">
+						<cond s="98" e="105" id="315" count="983" val="true"/>
+						<cond s="71" e="97" id="316" count="978" val="false"/>
+					</br>
+				</bl>
+				<bl s="71" e="97">
+					<goto s="95" e="97">
+						<tg s="134" e="136" id="317" count="978"/>
+					</goto>
+				</bl>
+				<bl s="98" e="105">
+					<br s="103" e="105">
+						<cond s="114" e="133" id="318" count="983" val="true"/>
+						<cond s="106" e="113" id="319" count="0" val="false"/>
+					</br>
+				</bl>
+				<bl s="106" e="113">
+				</bl>
+				<bl s="114" e="133">
+					<fall s="114" e="133" id="329" count="0"/>
+				</bl>
+				<bl s="134" e="136">
+					<fall s="134" e="136" id="330" count="983"/>
+					<goto s="134" e="136">
+						<tg s="228" e="230" id="320" count="1961"/>
+					</goto>
+				</bl>
+				<bl s="137" e="144">
+					<br s="142" e="144">
+						<cond s="228" e="230" id="321" count="0" val="true"/>
+						<cond s="145" e="164" id="322" count="1961" val="false"/>
+					</br>
+				</bl>
+				<bl s="145" e="164">
+					<br s="162" e="164">
+						<cond s="192" e="199" id="323" count="983" val="true"/>
+						<cond s="165" e="191" id="324" count="978" val="false"/>
+					</br>
+				</bl>
+				<bl s="165" e="191">
+					<goto s="189" e="191">
+						<tg s="228" e="230" id="325" count="978"/>
+					</goto>
+				</bl>
+				<bl s="192" e="199">
+					<br s="197" e="199">
+						<cond s="208" e="227" id="326" count="983" val="true"/>
+						<cond s="200" e="207" id="327" count="0" val="false"/>
+					</br>
+				</bl>
+				<bl s="200" e="207">
+				</bl>
+				<bl s="208" e="227">
+					<fall s="208" e="227" id="331" count="0"/>
+				</bl>
+				<bl s="228" e="230">
+					<fall s="228" e="230" id="332" count="983"/>
+					<goto s="228" e="230">
+						<tg s="0" e="10" id="328" count="3922"/>
+					</goto>
+				</bl>
+				<bl s="231" e="244">
+					<exit s="244" e="244" opcode="return"/>
+				</bl>
+				<lt>0=261;27=262;35=263;43=264;51=265;60=268;71=269;78=270;86=271;93=274;98=278;106=279;108=280;114=283;121=284;128=285;134=287;145=288;154=291;165=292;172=293;180=294;187=297;192=301;200=302;202=303;208=306;215=307;222=308;228=312;231=314;244=315;</lt>
+			</meth>
+			<meth name="&lt;clinit&gt;" vmsig="()V" flags=' static' access="8" clinit="true" length="18">
+				<bl s="0" e="17">
+					<methenter s="0" e="17" id="333" count="1"/>
+					<exit s="17" e="17" opcode="return"/>
+				</bl>
+				<lt>0=9;</lt>
+			</meth>
+		</class>
+		<class name="RedBlackTree$ColorEnum" supername="java/lang/Enum" checksum="1692529661" signature="Ljava/lang/Enum&lt;Lnet/mooctest/RedBlackTree$ColorEnum;&gt;;" source="RedBlackTree.java" inner="inner" flags=' public final enum'>
+			<meth name="values" vmsig="()[Lnet/mooctest/RedBlackTree$ColorEnum;" flags=' public static' access="9" length="10">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="188" count="0"/>
+					<exit s="9" e="9" opcode="areturn"/>
+				</bl>
+				<lt>0=5;</lt>
+			</meth>
+			<meth name="valueOf" vmsig="(Ljava/lang/String;)Lnet/mooctest/RedBlackTree$ColorEnum;" flags=' public static' access="9" length="10">
+				<bl s="0" e="9">
+					<methenter s="0" e="9" id="189" count="0"/>
+					<exit s="9" e="9" opcode="areturn"/>
+				</bl>
+				<lt>0=5;</lt>
+			</meth>
+			<meth name="&lt;init&gt;" vmsig="(Ljava/lang/String;I)V" flags=' private' access="2" cons="true" signature="()V" length="7">
+				<bl s="0" e="6">
+					<methenter s="0" e="6" id="190" count="2"/>
+					<exit s="6" e="6" opcode="return"/>
+				</bl>
+				<lt>0=5;</lt>
+			</meth>
+			<meth name="&lt;clinit&gt;" vmsig="()V" flags=' static' access="8" clinit="true" length="46">
+				<bl s="0" e="45">
+					<methenter s="0" e="45" id="191" count="1"/>
+					<exit s="45" e="45" opcode="return"/>
+				</bl>
+				<lt>0=6;26=5;</lt>
+			</meth>
+		</class>
+		<class name="RedBlackTree$RedBlackNode" supername="net/mooctest/Node" checksum="3556172045" source="RedBlackTree.java" inner="inner" flags=' public'>
+			<meth name="&lt;init&gt;" vmsig="(Ljava/lang/Integer;Lnet/mooctest/Node;Lnet/mooctest/Node;Lnet/mooctest/Node;Lnet/mooctest/RedBlackTree$ColorEnum;)V" flags=' public' access="1" cons="true" length="16">
+				<bl s="0" e="15">
+					<methenter s="0" e="15" id="192" count="2001"/>
+					<exit s="15" e="15" opcode="return"/>
+				</bl>
+				<lt>0=321;9=322;15=323;</lt>
+			</meth>
+		</class>
+	</package>
+</coverage>

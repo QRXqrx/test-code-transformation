@@ -1,0 +1,90 @@
+package nju.pa.driver;
+
+import nju.pa.exception.InvalidCmdOption;
+import nju.pa.transform.TestCodeTransformer;
+import nju.pa.util.IOUtil;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * Main class, Driver will drive the whole transformation process.
+ *
+ * @author QRX
+ * @email QRXwzx@outlook.com
+ * @date 2020-06-07
+ */
+public class TransformationDriver {
+
+    private static final String NEW_LINE = System.lineSeparator();
+    // option - param
+    private static final Map<String, String> paramsMap = new HashMap<>();
+    static {
+        paramsMap.put("-d", ""); // -d: A directory which contains .java files want transforming.
+        paramsMap.put("-f", ""); // -f: A single file which wants transforming.
+    }
+
+    public static void main(String[] args) {
+        // Parse cmd params.
+        for(int i = 0 ; i < args.length; i += 2) {
+            String option = args[i];
+            if(!isCmdOption(option))
+                throw new InvalidCmdOption(exceptionMsg(option));
+            // TODO - Change this part if param classes is enlarged.
+            paramsMap.put(option, args[i + 1]);
+        }
+
+        System.out.println("[paramsMap]" + paramsMap);
+
+        if(!"".equals(paramsMap.get("-d"))) { // -d is not empty
+            String dirPath = paramsMap.get("-d");
+            List<File> testJavaFiles = IOUtil.getAllFilesBySuffix(dirPath, IOUtil.JAVA_SUFFIX);
+            // Transform all java files.
+            TestCodeTransformer transformer = new TestCodeTransformer();
+            for (File testJavaFile : testJavaFiles) {
+                transformer.setJavaFile(testJavaFile);
+                System.out.println(String.format("[LOG] Now process [%s]", testJavaFile.getAbsolutePath()));
+                try {
+                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println(String.format("[LOG] Write content to [%s] failed.", testJavaFile.getAbsolutePath()));
+                    System.exit(-1);
+                }
+            }
+        }
+
+        if(!"".equals(paramsMap.get("-f"))) { // -d is not empty
+            String javaPath = paramsMap.get("-f");
+            TestCodeTransformer transformer = new TestCodeTransformer(javaPath);
+            System.out.println(String.format("[LOG] Now process %s", javaPath));
+            try {
+                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println(String.format("[LOG] Write content to [%s] failed.", javaPath));
+                System.exit(-1);
+            }
+        }
+    }
+
+    private static boolean isCmdOption(String arg) {
+        Set<String> cmdSet = paramsMap.keySet();
+        return cmdSet.contains(arg);
+    }
+
+    private static String exceptionMsg(String invalidOption) {
+        StringBuilder msgBuilder = new StringBuilder(100);
+        msgBuilder.append(invalidOption).append(" is not a valid option, please use:")
+                .append(NEW_LINE)
+                .append("\t -d : A directory which contains .java files want transforming.")
+                .append(NEW_LINE)
+                .append("\t -f : A single file which wants transforming.");
+        return msgBuilder.toString();
+    }
+
+}
