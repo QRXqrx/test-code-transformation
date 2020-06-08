@@ -111,27 +111,21 @@ public class TreeContextTest {
 
     @Test
     public void getPositionInfo_1() {
-        /*[Transform from] assertThat(treeContext().getNodeStartLine(compilationSubtree())).isEqualTo(subtreeStartLine());*/
         subtreeStartLine();
         assertThat(treeContext().getNodeEndLine(compilationSubtree())).isEqualTo(subtreeEndLine());
     }
 
     @Test
     public void getPositionInfo_2() {
-        /*[Transform from] assertThat(treeContext().getNodeStartLine(compilationSubtree())).isEqualTo(subtreeStartLine());*/
         subtreeStartLine();
-        /*[Transform from] assertThat(treeContext().getNodeEndLine(compilationSubtree())).isEqualTo(subtreeEndLine());*/
         subtreeEndLine();
         assertThat(treeContext().getNodeStartColumn(compilationSubtree())).isEqualTo(subtreeStartColumn());
     }
 
     @Test
     public void getPositionInfo_3() {
-        /*[Transform from] assertThat(treeContext().getNodeStartLine(compilationSubtree())).isEqualTo(subtreeStartLine());*/
         subtreeStartLine();
-        /*[Transform from] assertThat(treeContext().getNodeEndLine(compilationSubtree())).isEqualTo(subtreeEndLine());*/
         subtreeEndLine();
-        /*[Transform from] assertThat(treeContext().getNodeStartColumn(compilationSubtree())).isEqualTo(subtreeStartColumn());*/
         subtreeStartColumn();
         assertThat(treeContext().getNodeEndColumn(compilationSubtree())).isEqualTo(subtreeEndColumn());
     }

@@ -105,40 +105,30 @@ public class TreeDifferenceTest {
 
     @Test
     public void isEmpty_1() {
-        /*[Transform from] assertThat(emptyDiff().isEmpty()).isTrue();[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().isEmpty()).isFalse();
     }
 
     @Test
     public void isEmpty_2() {
-        /*[Transform from] assertThat(emptyDiff().isEmpty()).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
         assertThat(onlyActualDiffs().isEmpty()).isFalse();
     }
 
     @Test
     public void isEmpty_3() {
-        /*[Transform from] assertThat(emptyDiff().isEmpty()).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
         assertThat(twoWayDiffs().isEmpty()).isFalse();
     }
 
     @Test
     public void isEmpty_4() {
-        /*[Transform from] assertThat(emptyDiff().isEmpty()).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().isEmpty()).isFalse();[NONE Params]*/
         ;
         assertThat(multiDiffs().isEmpty()).isFalse();
     }
@@ -150,40 +140,30 @@ public class TreeDifferenceTest {
 
     @Test
     public void getExtraExpectedNodes_1() {
-        /*[Transform from] assertThat(emptyDiff().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getExtraExpectedNodes().size()).isEqualTo(2);
     }
 
     @Test
     public void getExtraExpectedNodes_2() {
-        /*[Transform from] assertThat(emptyDiff().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraExpectedNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
         assertThat(onlyActualDiffs().getExtraExpectedNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getExtraExpectedNodes_3() {
-        /*[Transform from] assertThat(emptyDiff().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraExpectedNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(twoWayDiffs().getExtraExpectedNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getExtraExpectedNodes_4() {
-        /*[Transform from] assertThat(emptyDiff().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraExpectedNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getExtraExpectedNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(multiDiffs().getExtraExpectedNodes().size()).isEqualTo(1);
     }
@@ -195,40 +175,30 @@ public class TreeDifferenceTest {
 
     @Test
     public void getExtraActualNodes_1() {
-        /*[Transform from] assertThat(emptyDiff().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getExtraActualNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getExtraActualNodes_2() {
-        /*[Transform from] assertThat(emptyDiff().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(onlyActualDiffs().getExtraActualNodes().size()).isEqualTo(2);
     }
 
     @Test
     public void getExtraActualNodes_3() {
-        /*[Transform from] assertThat(emptyDiff().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getExtraActualNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
         assertThat(twoWayDiffs().getExtraActualNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getExtraActualNodes_4() {
-        /*[Transform from] assertThat(emptyDiff().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getExtraActualNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getExtraActualNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(multiDiffs().getExtraActualNodes().size()).isEqualTo(1);
     }
@@ -240,40 +210,30 @@ public class TreeDifferenceTest {
 
     @Test
     public void getDifferingNodes_1() {
-        /*[Transform from] assertThat(emptyDiff().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getDifferingNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getDifferingNodes_2() {
-        /*[Transform from] assertThat(emptyDiff().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(onlyActualDiffs().getDifferingNodes().size()).isEqualTo(0);
     }
 
     @Test
     public void getDifferingNodes_3() {
-        /*[Transform from] assertThat(emptyDiff().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
         assertThat(twoWayDiffs().getDifferingNodes().size()).isEqualTo(2);
     }
 
     @Test
     public void getDifferingNodes_4() {
-        /*[Transform from] assertThat(emptyDiff().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDifferingNodes().size()).isEqualTo(0);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getDifferingNodes().size()).isEqualTo(2);[NONE Params]*/
         ;
         assertThat(multiDiffs().getDifferingNodes().size()).isEqualTo(1);
     }
@@ -285,135 +245,90 @@ public class TreeDifferenceTest {
 
     @Test
     public void getDiffReport_NoContext_1() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");
     }
 
     @Test
     public void getDiffReport_NoContext_2() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());
     }
 
     @Test
     public void getDiffReport_NoContext_3() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
         assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");
     }
 
     @Test
     public void getDiffReport_NoContext_4() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
         assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());
     }
 
     @Test
     public void getDiffReport_NoContext_5() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
         assertThat(twoWayDiffs().getDiffReport()).contains("differed in expected and actual");
     }
 
     @Test
     public void getDiffReport_NoContext_6() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains("differed in expected and actual");[NONE Params]*/
         ;
         assertThat(twoWayDiffs().getDiffReport()).contains(twoWayDiffMessage());
     }
 
     @Test
     public void getDiffReport_NoContext_7() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains("differed in expected and actual");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
         assertThat(multiDiffs().getDiffReport()).contains(expectedDiffMessage());
     }
 
     @Test
     public void getDiffReport_NoContext_8() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains("differed in expected and actual");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
         assertThat(multiDiffs().getDiffReport()).contains(actualDiffMessage());
     }
 
     @Test
     public void getDiffReport_NoContext_9() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport() != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains("differed in expected and actual");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport()).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport()).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport()).contains(actualDiffMessage());*/
         actualDiffMessage();
         assertThat(multiDiffs().getDiffReport()).contains(twoWayDiffMessage());
     }
@@ -425,187 +340,121 @@ public class TreeDifferenceTest {
 
     @Test
     public void getDiffReport_WithContext_1() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
         assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());
     }
 
     @Test
     public void getDiffReport_WithContext_2() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
         assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());
     }
 
     @Test
     public void getDiffReport_WithContext_3() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
         assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());
     }
 
     @Test
     public void getDiffReport_WithContext_4() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
         assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());
     }
 
     @Test
     public void getDiffReport_WithContext_5() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
         assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());
     }
 
     @Test
     public void getDiffReport_WithContext_6() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
         assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());
     }
 
     @Test
     public void getDiffReport_WithContext_7() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());*/
         twoWayDiffContextStr();
         assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());
     }
 
     @Test
     public void getDiffReport_WithContext_8() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());*/
         twoWayDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
         assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());
     }
 
     @Test
     public void getDiffReport_WithContext_9() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());*/
         twoWayDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
         assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());
     }
 
     @Test
     public void getDiffReport_WithContext_10() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());*/
         twoWayDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
         assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());
     }
 
     @Test
     public void getDiffReport_WithContext_11() {
-        /*[Transform from] assertThat(emptyDiff().getDiffReport(treeContext(), treeContext()) != null).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffMessage());*/
         expectedDiffMessage();
-        /*[Transform from] assertThat(onlyExpectedDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(onlyActualDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
-        /*[Transform from] assertThat(twoWayDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());*/
         twoWayDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(expectedDiffContextStr());*/
         expectedDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffMessage());*/
         actualDiffMessage();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(actualDiffContextStr());*/
         actualDiffContextStr();
-        /*[Transform from] assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffMessage());*/
         twoWayDiffMessage();
         assertThat(multiDiffs().getDiffReport(treeContext(), treeContext())).contains(twoWayDiffContextStr());
     }
@@ -623,7 +472,6 @@ public class TreeDifferenceTest {
         CompilationUnitTree modifiersPresent = MoreTrees.parseLinesToTree("package test;", "final class TestClass {", "   TestClass() {}", "}");
         CompilationUnitTree modifiersAbsent = MoreTrees.parseLinesToTree("package test;", "class TestClass {", "   TestClass() {}", "}");
         TreeDifference diff = TreeDiffer.diffCompilationUnits(modifiersPresent, modifiersAbsent);
-        /*[Transform from] assertThat(diff.getDiffReport(treeContext(modifiersPresent), treeContext(modifiersAbsent)).isEmpty()).isFalse();[NONE Params]*/
         ;
         diff = TreeDiffer.diffCompilationUnits(modifiersAbsent, modifiersPresent);
         assertThat(diff.getDiffReport(treeContext(modifiersAbsent), treeContext(modifiersPresent)).isEmpty()).isFalse();

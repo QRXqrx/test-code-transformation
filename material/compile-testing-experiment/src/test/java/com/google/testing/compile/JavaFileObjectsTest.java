@@ -41,7 +41,6 @@ public class JavaFileObjectsTest {
     @Test
     public void forResource_inJarFile_1() {
         JavaFileObject resourceInJar = JavaFileObjects.forResource("com/google/testing/compile/JavaFileObjectsTest.class");
-        /*[Transform from] assertThat(resourceInJar.getKind()).isEqualTo(CLASS);[NONE Params]*/
         ;
         assertThat(resourceInJar.toUri().getPath()).endsWith("/com/google/testing/compile/JavaFileObjectsTest.class");
     }
@@ -49,9 +48,7 @@ public class JavaFileObjectsTest {
     @Test
     public void forResource_inJarFile_2() {
         JavaFileObject resourceInJar = JavaFileObjects.forResource("com/google/testing/compile/JavaFileObjectsTest.class");
-        /*[Transform from] assertThat(resourceInJar.getKind()).isEqualTo(CLASS);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(resourceInJar.toUri().getPath()).endsWith("/com/google/testing/compile/JavaFileObjectsTest.class");[NONE Params]*/
         ;
         assertThat(resourceInJar.getName()).endsWith("/com/google/testing/compile/JavaFileObjectsTest.class");
     }
@@ -59,11 +56,8 @@ public class JavaFileObjectsTest {
     @Test
     public void forResource_inJarFile_3() {
         JavaFileObject resourceInJar = JavaFileObjects.forResource("com/google/testing/compile/JavaFileObjectsTest.class");
-        /*[Transform from] assertThat(resourceInJar.getKind()).isEqualTo(CLASS);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(resourceInJar.toUri().getPath()).endsWith("/com/google/testing/compile/JavaFileObjectsTest.class");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(resourceInJar.getName()).endsWith("/com/google/testing/compile/JavaFileObjectsTest.class");[NONE Params]*/
         ;
         assertThat(resourceInJar.isNameCompatible("JavaFileObjectsTest", CLASS)).isTrue();
     }

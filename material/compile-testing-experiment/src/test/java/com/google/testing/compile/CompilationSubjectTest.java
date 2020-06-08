@@ -70,7 +70,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void succeeded_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD)).succeeded();[NONE Params]*/
             ;
             assertThat(javac().compile(HELLO_WORLD_RESOURCE)).succeeded();
         }
@@ -86,7 +85,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -95,9 +93,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
         }
@@ -113,7 +109,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsNoGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -143,7 +138,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -152,9 +146,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains("No files were generated.");[NONE Params]*/
             ;
             // @DiagnosticMessage
             assertThat(expected.getMessage()).contains("warning: this is a message");
@@ -184,7 +176,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_1() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
             assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");
@@ -192,10 +183,8 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_2() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -207,7 +196,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingInFileOnLineAtColumn_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -225,7 +213,6 @@ public class CompilationSubjectTest {
      * (containing(String), containingMatch(String), containingMatch(Pattern)). */
         @Test
         public void hadWarningContainingInFileOnLineContaining_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("class HelloWorld");[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("Object foo");
         }
@@ -237,7 +224,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -249,7 +235,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -265,7 +250,6 @@ public class CompilationSubjectTest {
         public void hadWarningContaining_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -282,7 +266,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -299,7 +282,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_pattern_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -316,7 +298,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -334,7 +315,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -382,7 +362,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -406,7 +385,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContaining_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -418,7 +396,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -430,7 +407,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -446,7 +422,6 @@ public class CompilationSubjectTest {
         public void hadNoteContaining_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -463,7 +438,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -480,7 +454,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_pattern_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -497,7 +470,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -515,7 +487,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -533,7 +504,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -557,7 +527,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContaining_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContaining("not a statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -569,7 +538,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -581,7 +549,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -597,7 +564,6 @@ public class CompilationSubjectTest {
         public void hadErrorContaining_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("some error");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -614,7 +580,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -631,7 +596,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_pattern_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -648,7 +612,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(HELLO_WORLD_RESOURCE.getName());
         }
@@ -666,7 +629,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 18;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: "));*/
             lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -684,7 +646,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName());
             assertThat(expected.getMessage()).contains("" + actualErrorCol);
         }
@@ -717,7 +678,6 @@ public class CompilationSubjectTest {
         public void generatedSourceFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedSourceFile("ThisIsNotTheRightFile");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/ThisIsNotTheRightFile.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -757,7 +717,6 @@ public class CompilationSubjectTest {
         public void generatedFileDefaultPackageFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedFile(CLASS_OUTPUT, "", "File.java");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/File.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -791,7 +750,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void succeeded_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD)).succeeded();[NONE Params]*/
             ;
             assertThat(javac().compile(HELLO_WORLD_RESOURCE)).succeeded();
         }
@@ -807,7 +765,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -816,9 +773,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
         }
@@ -834,7 +789,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsNoGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -864,7 +818,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -873,9 +826,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains("No files were generated.");[NONE Params]*/
             ;
             // @DiagnosticMessage
             assertThat(expected.getMessage()).contains("warning: this is a message");
@@ -905,7 +856,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_1() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
             assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");
@@ -913,10 +863,8 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_2() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -928,7 +876,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingInFileOnLineAtColumn_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -946,7 +893,6 @@ public class CompilationSubjectTest {
      * (containing(String), containingMatch(String), containingMatch(Pattern)). */
         @Test
         public void hadWarningContainingInFileOnLineContaining_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("class HelloWorld");[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("Object foo");
         }
@@ -958,7 +904,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -970,7 +915,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -986,7 +930,6 @@ public class CompilationSubjectTest {
         public void hadWarningContaining_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1003,7 +946,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1020,7 +962,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_pattern_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1037,7 +978,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -1055,7 +995,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -1103,7 +1042,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -1127,7 +1065,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContaining_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1139,7 +1076,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1151,7 +1087,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1167,7 +1102,6 @@ public class CompilationSubjectTest {
         public void hadNoteContaining_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1184,7 +1118,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1201,7 +1134,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_pattern_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1218,7 +1150,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -1236,7 +1167,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -1254,7 +1184,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -1278,7 +1207,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContaining_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContaining("not a statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -1290,7 +1218,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -1302,7 +1229,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -1318,7 +1244,6 @@ public class CompilationSubjectTest {
         public void hadErrorContaining_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("some error");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -1335,7 +1260,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -1352,7 +1276,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_pattern_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -1369,7 +1292,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(HELLO_WORLD_RESOURCE.getName());
         }
@@ -1387,7 +1309,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 18;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: "));*/
             lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -1405,7 +1326,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName());
             assertThat(expected.getMessage()).contains("" + actualErrorCol);
         }
@@ -1438,7 +1358,6 @@ public class CompilationSubjectTest {
         public void generatedSourceFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedSourceFile("ThisIsNotTheRightFile");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/ThisIsNotTheRightFile.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -1478,7 +1397,6 @@ public class CompilationSubjectTest {
         public void generatedFileDefaultPackageFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedFile(CLASS_OUTPUT, "", "File.java");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/File.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -1500,7 +1418,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void succeeded_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD)).succeeded();[NONE Params]*/
             ;
             assertThat(javac().compile(HELLO_WORLD_RESOURCE)).succeeded();
         }
@@ -1516,7 +1433,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -1525,9 +1441,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
         }
@@ -1543,7 +1457,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsNoGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -1573,7 +1486,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -1582,9 +1494,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains("No files were generated.");[NONE Params]*/
             ;
             // @DiagnosticMessage
             assertThat(expected.getMessage()).contains("warning: this is a message");
@@ -1614,7 +1524,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_1() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
             assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");
@@ -1622,10 +1531,8 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_2() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -1637,7 +1544,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingInFileOnLineAtColumn_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1655,7 +1561,6 @@ public class CompilationSubjectTest {
      * (containing(String), containingMatch(String), containingMatch(Pattern)). */
         @Test
         public void hadWarningContainingInFileOnLineContaining_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("class HelloWorld");[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("Object foo");
         }
@@ -1667,7 +1572,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1679,7 +1583,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1695,7 +1598,6 @@ public class CompilationSubjectTest {
         public void hadWarningContaining_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1712,7 +1614,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1729,7 +1630,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_pattern_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1746,7 +1646,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -1764,7 +1663,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -1812,7 +1710,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -1836,7 +1733,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContaining_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1848,7 +1744,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1860,7 +1755,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -1876,7 +1770,6 @@ public class CompilationSubjectTest {
         public void hadNoteContaining_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1893,7 +1786,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1910,7 +1802,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_pattern_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -1927,7 +1818,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -1945,7 +1835,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -1963,7 +1852,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -1987,7 +1875,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContaining_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContaining("not a statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -1999,7 +1886,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -2011,7 +1897,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -2027,7 +1912,6 @@ public class CompilationSubjectTest {
         public void hadErrorContaining_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("some error");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2044,7 +1928,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2061,7 +1944,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_pattern_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2078,7 +1960,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(HELLO_WORLD_RESOURCE.getName());
         }
@@ -2096,7 +1977,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 18;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: "));*/
             lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -2114,7 +1994,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName());
             assertThat(expected.getMessage()).contains("" + actualErrorCol);
         }
@@ -2147,7 +2026,6 @@ public class CompilationSubjectTest {
         public void generatedSourceFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedSourceFile("ThisIsNotTheRightFile");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/ThisIsNotTheRightFile.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -2187,7 +2065,6 @@ public class CompilationSubjectTest {
         public void generatedFileDefaultPackageFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedFile(CLASS_OUTPUT, "", "File.java");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/File.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -2206,7 +2083,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void succeeded_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD)).succeeded();[NONE Params]*/
             ;
             assertThat(javac().compile(HELLO_WORLD_RESOURCE)).succeeded();
         }
@@ -2222,7 +2098,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -2231,9 +2106,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsGeneratedFiles_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
         }
@@ -2249,7 +2122,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsNoGeneratedFiles_1() {
             expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -2279,7 +2151,6 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -2288,9 +2159,7 @@ public class CompilationSubjectTest {
         public void succeeded_failureReportsWarnings_2() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
             ;
-            /*[Transform from] assertThat(expected.getMessage()).contains("No files were generated.");[NONE Params]*/
             ;
             // @DiagnosticMessage
             assertThat(expected.getMessage()).contains("warning: this is a message");
@@ -2320,7 +2189,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_1() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
             assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");
@@ -2328,10 +2196,8 @@ public class CompilationSubjectTest {
 
         @Test
         public void failedToCompile_compilationSucceeded_2() {
-            /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
             ;
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains("No files were generated.");
         }
@@ -2343,7 +2209,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingInFileOnLineAtColumn_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2361,7 +2226,6 @@ public class CompilationSubjectTest {
      * (containing(String), containingMatch(String), containingMatch(Pattern)). */
         @Test
         public void hadWarningContainingInFileOnLineContaining_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("class HelloWorld");[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("Object foo");
         }
@@ -2373,7 +2237,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2385,7 +2248,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadWarningContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2401,7 +2263,6 @@ public class CompilationSubjectTest {
         public void hadWarningContaining_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2418,7 +2279,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2435,7 +2295,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingMatch_pattern_noSuchWarning_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2452,7 +2311,6 @@ public class CompilationSubjectTest {
         public void hadWarningContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -2470,7 +2328,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -2518,7 +2375,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -2542,7 +2398,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContaining_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2554,7 +2409,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2566,7 +2420,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadNoteContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
             ;
             assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
         }
@@ -2582,7 +2435,6 @@ public class CompilationSubjectTest {
         public void hadNoteContaining_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("what is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2599,7 +2451,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2616,7 +2467,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingMatch_pattern_noSuchNote_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -2633,7 +2483,6 @@ public class CompilationSubjectTest {
         public void hadNoteContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(sourceFile.getName());
         }
@@ -2651,7 +2500,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 6;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
             lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -2669,7 +2517,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName()));*/
             format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName());
             assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
         }
@@ -2693,7 +2540,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContaining_1() {
-            /*[Transform from] assertThat(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContaining("not a statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -2705,7 +2551,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -2717,7 +2562,6 @@ public class CompilationSubjectTest {
 
         @Test
         public void hadErrorContainingMatch_pattern_1() {
-            /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
             ;
             assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
         }
@@ -2733,7 +2577,6 @@ public class CompilationSubjectTest {
         public void hadErrorContaining_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("some error");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2750,7 +2593,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(what|where) is it?");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2767,7 +2609,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingMatch_pattern_noSuchError_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch(Pattern.compile("(what|where) is it?"));
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
             ;
             // some versions of javac wedge the file and position in the middle
             assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -2784,7 +2625,6 @@ public class CompilationSubjectTest {
         public void hadErrorContainingInFile_wrongFile_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
             assertThat(expected.getMessage()).contains(HELLO_WORLD_RESOURCE.getName());
         }
@@ -2802,7 +2642,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorLine = 18;
-            /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: "));*/
             lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: ");
             assertThat(expected.getMessage()).contains("" + actualErrorLine);
         }
@@ -2820,7 +2659,6 @@ public class CompilationSubjectTest {
             expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(1);
             AssertionError expected = expectFailure.getFailure();
             int actualErrorCol = 8;
-            /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName()));*/
             format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName());
             assertThat(expected.getMessage()).contains("" + actualErrorCol);
         }
@@ -2853,7 +2691,6 @@ public class CompilationSubjectTest {
         public void generatedSourceFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedSourceFile("ThisIsNotTheRightFile");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/ThisIsNotTheRightFile.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -2893,7 +2730,6 @@ public class CompilationSubjectTest {
         public void generatedFileDefaultPackageFile_fail_1() {
             expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedFile(CLASS_OUTPUT, "", "File.java");
             AssertionError expected = expectFailure.getFailure();
-            /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/File.java");[NONE Params]*/
             ;
             assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
         }
@@ -2934,7 +2770,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void succeeded_1() {
-        /*[Transform from] assertThat(javac().compile(HELLO_WORLD)).succeeded();[NONE Params]*/
         ;
         assertThat(javac().compile(HELLO_WORLD_RESOURCE)).succeeded();
     }
@@ -2950,7 +2785,6 @@ public class CompilationSubjectTest {
     public void succeeded_failureReportsGeneratedFiles_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -2959,9 +2793,7 @@ public class CompilationSubjectTest {
     public void succeeded_failureReportsGeneratedFiles_2() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithGeneratorAndError().compile(HELLO_WORLD_RESOURCE)).succeeded();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
     }
@@ -2977,7 +2809,6 @@ public class CompilationSubjectTest {
     public void succeeded_failureReportsNoGeneratedFiles_1() {
         expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).succeeded();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("No files were generated.");
     }
@@ -3007,7 +2838,6 @@ public class CompilationSubjectTest {
     public void succeeded_failureReportsWarnings_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("No files were generated.");
     }
@@ -3016,9 +2846,7 @@ public class CompilationSubjectTest {
     public void succeeded_failureReportsWarnings_2() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(HELLO_WORLD_BROKEN)).succeeded();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("No files were generated.");[NONE Params]*/
         ;
         // @DiagnosticMessage
         assertThat(expected.getMessage()).contains("warning: this is a message");
@@ -3048,7 +2876,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void failedToCompile_compilationSucceeded_1() {
-        /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");
@@ -3056,10 +2883,8 @@ public class CompilationSubjectTest {
 
     @Test
     public void failedToCompile_compilationSucceeded_2() {
-        /*[Transform from] expectFailure.whenTesting().about(compilations()).that(javac().compile(HELLO_WORLD_RESOURCE)).failed();[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Compilation was expected to fail, but contained no errors");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("No files were generated.");
     }
@@ -3071,7 +2896,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadWarningContainingInFileOnLineAtColumn_1() {
-        /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3089,7 +2913,6 @@ public class CompilationSubjectTest {
      * (containing(String), containingMatch(String), containingMatch(Pattern)). */
     @Test
     public void hadWarningContainingInFileOnLineContaining_1() {
-        /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("class HelloWorld");[NONE Params]*/
         ;
         assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLineContaining("Object foo");
     }
@@ -3101,7 +2924,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadWarningContainingMatch_1() {
-        /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3113,7 +2935,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadWarningContainingMatch_pattern_1() {
-        /*[Transform from] assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3129,7 +2950,6 @@ public class CompilationSubjectTest {
     public void hadWarningContaining_noSuchWarning_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("what is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3146,7 +2966,6 @@ public class CompilationSubjectTest {
     public void hadWarningContainingMatch_noSuchWarning_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch("(what|where) is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3163,7 +2982,6 @@ public class CompilationSubjectTest {
     public void hadWarningContainingMatch_pattern_noSuchWarning_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContainingMatch(Pattern.compile("(what|where) is it?"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a warning containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3180,7 +2998,6 @@ public class CompilationSubjectTest {
     public void hadWarningContainingInFile_wrongFile_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
         assertThat(expected.getMessage()).contains(sourceFile.getName());
     }
@@ -3198,7 +3015,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
         lines(format("Expected a warning containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -3246,7 +3062,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithWarning().compile(sourceFile)).hadWarningContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName()));*/
         format("Expected a warning containing \"this is a message\" in %s " + "at column 1 of line 6", sourceFile.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -3270,7 +3085,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadNoteContaining_1() {
-        /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3282,7 +3096,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadNoteContainingMatch_1() {
-        /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("this is a? message").inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(this|here) is a message").inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3294,7 +3107,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadNoteContainingMatch_pattern_1() {
-        /*[Transform from] assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("this is a? message")).inFile(sourceFile).onLine(6).atColumn(8);[NONE Params]*/
         ;
         assertThat(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(this|here) is a message")).inFile(sourceFile).onLine(7).atColumn(29);
     }
@@ -3310,7 +3122,6 @@ public class CompilationSubjectTest {
     public void hadNoteContaining_noSuchNote_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("what is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3327,7 +3138,6 @@ public class CompilationSubjectTest {
     public void hadNoteContainingMatch_noSuchNote_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch("(what|where) is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3344,7 +3154,6 @@ public class CompilationSubjectTest {
     public void hadNoteContainingMatch_pattern_noSuchNote_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContainingMatch(Pattern.compile("(what|where) is it?"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected a note containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("this is a message\n");
@@ -3361,7 +3170,6 @@ public class CompilationSubjectTest {
     public void hadNoteContainingInFile_wrongFile_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
         format("Expected a note containing \"this is a message\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
         assertThat(expected.getMessage()).contains(sourceFile.getName());
     }
@@ -3379,7 +3187,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: "));*/
         lines(format("Expected a note containing \"this is a message\" in %s on line:", sourceFile.getName()), "   1: ");
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -3397,7 +3204,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithNote().compile(sourceFile)).hadNoteContaining("this is a message").inFile(sourceFile).onLine(6).atColumn(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName()));*/
         format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", sourceFile.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -3421,7 +3227,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadErrorContaining_1() {
-        /*[Transform from] assertThat(javac().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContaining("not a statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
         ;
         assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
     }
@@ -3433,7 +3238,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadErrorContainingMatch_1() {
-        /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
         ;
         assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
     }
@@ -3445,7 +3249,6 @@ public class CompilationSubjectTest {
 
     @Test
     public void hadErrorContainingMatch_pattern_1() {
-        /*[Transform from] assertThat(compilerWithError().compile(HELLO_WORLD_BROKEN_RESOURCE)).hadErrorContainingMatch("not+ +a? statement").inFile(HELLO_WORLD_BROKEN_RESOURCE).onLine(23).atColumn(5);[NONE Params]*/
         ;
         assertThat(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(wanted|expected) error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(8);
     }
@@ -3461,7 +3264,6 @@ public class CompilationSubjectTest {
     public void hadErrorContaining_noSuchError_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("some error");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -3478,7 +3280,6 @@ public class CompilationSubjectTest {
     public void hadErrorContainingMatch_noSuchError_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch("(what|where) is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -3495,7 +3296,6 @@ public class CompilationSubjectTest {
     public void hadErrorContainingMatch_pattern_noSuchError_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContainingMatch(Pattern.compile("(what|where) is it?"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).startsWith("Expected an error containing match for /(what|where) is it?/, but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected.getMessage()).endsWith("expected error!\n");
@@ -3512,7 +3312,6 @@ public class CompilationSubjectTest {
     public void hadErrorContainingInFile_wrongFile_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_DIFFERENT_RESOURCE);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName()));*/
         format("Expected an error containing \"expected error!\" in %s", HELLO_WORLD_DIFFERENT_RESOURCE.getName());
         assertThat(expected.getMessage()).contains(HELLO_WORLD_RESOURCE.getName());
     }
@@ -3530,7 +3329,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 18;
-        /*[Transform from] assertThat(expected.getMessage()).contains(lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: "));*/
         lines(format("Expected an error containing \"expected error!\" in %s on line:", HELLO_WORLD_RESOURCE.getName()), "   1: ");
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -3548,7 +3346,6 @@ public class CompilationSubjectTest {
         expectFailure.whenTesting().about(compilations()).that(compilerWithError().compile(HELLO_WORLD_RESOURCE)).hadErrorContaining("expected error!").inFile(HELLO_WORLD_RESOURCE).onLine(18).atColumn(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName()));*/
         format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", HELLO_WORLD_RESOURCE.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorCol);
     }
@@ -3581,7 +3378,6 @@ public class CompilationSubjectTest {
     public void generatedSourceFile_fail_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedSourceFile("ThisIsNotTheRightFile");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/ThisIsNotTheRightFile.java");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -3621,7 +3417,6 @@ public class CompilationSubjectTest {
     public void generatedFileDefaultPackageFile_fail_1() {
         expectFailure.whenTesting().about(compilations()).that(compilerWithGenerator().compile(HELLO_WORLD_RESOURCE)).generatedFile(CLASS_OUTPUT, "", "File.java");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/File.java");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }

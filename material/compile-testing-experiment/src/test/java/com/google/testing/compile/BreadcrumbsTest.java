@@ -89,7 +89,6 @@ public class BreadcrumbsTest {
 
     @Test
     public void getDescriptor_method_1() {
-        /*[Transform from] assertThat(methodTree().accept(BREADCRUMBS, null)).contains(methodTree().getKind().toString());*/
         methodTree().getKind().toString();
         assertThat(methodTree().accept(BREADCRUMBS, null)).contains(methodTree().getName().toString());
     }
@@ -101,7 +100,6 @@ public class BreadcrumbsTest {
 
     @Test
     public void getDescriptor_literal_1() {
-        /*[Transform from] assertThat(literalTree().accept(BREADCRUMBS, null)).contains(literalTree().getKind().toString());*/
         literalTree().getKind().toString();
         assertThat(literalTree().accept(BREADCRUMBS, null)).contains(literalTree().getValue().toString());
     }
@@ -113,7 +111,6 @@ public class BreadcrumbsTest {
 
     @Test
     public void getDescriptor_class_1() {
-        /*[Transform from] assertThat(classTree().accept(BREADCRUMBS, null)).contains(classTree().getKind().toString());*/
         classTree().getKind().toString();
         assertThat(classTree().accept(BREADCRUMBS, null)).contains(classTree().getSimpleName().toString());
     }
@@ -125,7 +122,6 @@ public class BreadcrumbsTest {
 
     @Test
     public void getDescriptor_variable_1() {
-        /*[Transform from] assertThat(variableTree().accept(BREADCRUMBS, null)).contains(variableTree().getKind().toString());*/
         variableTree().getKind().toString();
         assertThat(variableTree().accept(BREADCRUMBS, null)).contains(variableTree().getName().toString());
     }

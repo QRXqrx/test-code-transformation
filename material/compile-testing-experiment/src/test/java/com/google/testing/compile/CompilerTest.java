@@ -96,7 +96,6 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isFalse();
     }
@@ -106,9 +105,7 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor3.invoked).isFalse();
     }
@@ -118,11 +115,8 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor3.invoked).isFalse();[NONE Params]*/
         ;
         Processor[] processors = { noopProcessor1, noopProcessor3 };
         JavaFileObject[] files = { HELLO_WORLD };
@@ -135,16 +129,12 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor3.invoked).isFalse();[NONE Params]*/
         ;
         Processor[] processors = { noopProcessor1, noopProcessor3 };
         JavaFileObject[] files = { HELLO_WORLD };
         Compilation unused = javac().withProcessors(processors).withProcessors(noopProcessor1, noopProcessor2).compile(files);
-        /*[Transform from] assertThat(noopProcessor1.invoked).isTrue();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isTrue();
     }
@@ -154,9 +144,7 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor3.invoked).isFalse();
     }
@@ -174,7 +162,6 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isFalse();
     }
@@ -184,9 +171,7 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor3.invoked).isFalse();
     }
@@ -196,11 +181,8 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor3.invoked).isFalse();[NONE Params]*/
         ;
         JavaFileObject[] files = { HELLO_WORLD };
         Compilation unused = javac().withProcessors(Arrays.asList(noopProcessor1, noopProcessor3)).withProcessors(Arrays.asList(noopProcessor1, noopProcessor2)).compile(files);
@@ -212,15 +194,11 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor3.invoked).isFalse();[NONE Params]*/
         ;
         JavaFileObject[] files = { HELLO_WORLD };
         Compilation unused = javac().withProcessors(Arrays.asList(noopProcessor1, noopProcessor3)).withProcessors(Arrays.asList(noopProcessor1, noopProcessor2)).compile(files);
-        /*[Transform from] assertThat(noopProcessor1.invoked).isTrue();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isTrue();
     }
@@ -230,9 +208,7 @@ public final class CompilerTest {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
         NoOpProcessor noopProcessor3 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor3.invoked).isFalse();
     }

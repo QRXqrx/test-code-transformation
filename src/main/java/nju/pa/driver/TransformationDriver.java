@@ -26,6 +26,7 @@ public class TransformationDriver {
     static {
         paramsMap.put("-d", ""); // -d: A directory which contains .java files want transforming.
         paramsMap.put("-f", ""); // -f: A single file which wants transforming.
+        paramsMap.put("-c", ""); // -c: In generated java file: comment on or off(true or false).
     }
 
     public static void main(String[] args) {
@@ -40,6 +41,10 @@ public class TransformationDriver {
 
         System.out.println("[paramsMap]" + paramsMap);
 
+        boolean commentOn = true;
+        if(!"".equals(paramsMap.get("-c")))
+            commentOn = Boolean.parseBoolean(paramsMap.get("-c"));
+
         if(!"".equals(paramsMap.get("-d"))) { // -d is not empty
             String dirPath = paramsMap.get("-d");
             List<File> testJavaFiles = IOUtil.getAllFilesBySuffix(dirPath, IOUtil.JAVA_SUFFIX);
@@ -49,7 +54,7 @@ public class TransformationDriver {
                 transformer.setJavaFile(testJavaFile);
                 System.out.println(String.format("[LOG] Now process [%s]", testJavaFile.getAbsolutePath()));
                 try {
-                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc());
+                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn));
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println(String.format("[LOG] Write content to [%s] failed.", testJavaFile.getAbsolutePath()));
@@ -63,13 +68,14 @@ public class TransformationDriver {
             TestCodeTransformer transformer = new TestCodeTransformer(javaPath);
             System.out.println(String.format("[LOG] Now process %s", javaPath));
             try {
-                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc());
+                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn));
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(String.format("[LOG] Write content to [%s] failed.", javaPath));
                 System.exit(-1);
             }
         }
+
     }
 
     private static boolean isCmdOption(String arg) {
@@ -83,7 +89,10 @@ public class TransformationDriver {
                 .append(NEW_LINE)
                 .append("\t -d : A directory which contains .java files want transforming.")
                 .append(NEW_LINE)
-                .append("\t -f : A single file which wants transforming.");
+                .append("\t -f : A single file which wants transforming.")
+                .append(NEW_LINE)
+                .append("\t -c: In generated java file: comment on or off(true or false). " +
+                        "As default, generated java file will contains comment to show some lines's original code.");
         return msgBuilder.toString();
     }
 

@@ -75,12 +75,16 @@ public class TestCodeTransformer {
         this.alreadyTransformed = false;
     }
 
-    public String transformToSrc() {
-        transform();
+    public String transformToSrc() {return transformToSrc(true);}
+
+    public String transformToSrc(boolean commentOn) {
+        transform(commentOn);
         return cu.toString();
     }
 
-    public void transform() {
+    public void transform() { transform(true); }
+
+    public void transform(boolean commentOn) {
         if(alreadyTransformed) return;
         // Collect all old test methods.
         TestMethodCollector tmdCollector = new TestMethodCollector();
@@ -90,21 +94,21 @@ public class TestCodeTransformer {
         OldTestRemover remover = new OldTestRemover();
         remover.visit(cu, oldTMDs);
         // Generate new test methods.
-        List<MethodDeclaration> newTMDs = generateNewTestMethods(oldTMDs);
+        List<MethodDeclaration> newTMDs = generateNewTestMethods(oldTMDs, commentOn);
         // Add new test methods.
         NewTestAdder adder = new NewTestAdder();
         adder.visit(cu, newTMDs);
         alreadyTransformed = true;
     }
 
-    private List<MethodDeclaration> generateNewTestMethods(List<MethodDeclaration> oldTMDs) {
+    private List<MethodDeclaration> generateNewTestMethods(List<MethodDeclaration> oldTMDs, boolean commentOn) {
         NodeList<MethodDeclaration> newTMDs = new NodeList<>();
         for (MethodDeclaration oldTMD : oldTMDs)
-            newTMDs.addAll(splitOneOldTestMethod(oldTMD));
+            newTMDs.addAll(splitOneOldTestMethod(oldTMD, commentOn));
         return newTMDs;
     }
 
-    private List<MethodDeclaration> splitOneOldTestMethod(MethodDeclaration oldTMD) {
+    private List<MethodDeclaration> splitOneOldTestMethod(MethodDeclaration oldTMD, boolean commentOn) {
         // Build new method bodies.
         Optional<BlockStmt> op = oldTMD.getBody();
         if(!op.isPresent())
@@ -129,7 +133,7 @@ public class TestCodeTransformer {
                 if(finalStmt.equals(stmt)) { // Each final stmt indicate one new method body.
                     // Refactor all previous assert.
                     JasModifier jasModifier = new JasModifier();
-                    jasModifier.visit(newMethodBody, null);
+                    jasModifier.visit(newMethodBody, commentOn);
                     // Add final stmt.
                     newMethodBody.addStatement(stmt);
                     newBodies.add(newMethodBody);

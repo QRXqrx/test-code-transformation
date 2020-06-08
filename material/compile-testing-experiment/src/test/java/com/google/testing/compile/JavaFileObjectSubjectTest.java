@@ -75,7 +75,6 @@ public final class JavaFileObjectSubjectTest {
     public void contentsAsString_fail_1() {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).contentsAsString(UTF_8).containsMatch("bad+");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factValue("value of").isEqualTo("javaFileObject.contents()");[NONE Params]*/
         ;
         assertThat(expected).factValue("javaFileObject was").startsWith(CLASS.getName());
     }
@@ -84,9 +83,7 @@ public final class JavaFileObjectSubjectTest {
     public void contentsAsString_fail_2() {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).contentsAsString(UTF_8).containsMatch("bad+");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factValue("value of").isEqualTo("javaFileObject.contents()");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected).factValue("javaFileObject was").startsWith(CLASS.getName());*/
         CLASS.getName();
         assertThat(expected).factValue("expected to contain a match for").isEqualTo("bad+");
     }
@@ -112,7 +109,6 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnDifferences_1() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).hasSourceEquivalentTo(DIFFERENT_NAME);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(CLASS.getName());
     }
@@ -121,9 +117,7 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnDifferences_2() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).hasSourceEquivalentTo(DIFFERENT_NAME);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(CLASS.getName());*/
         CLASS.getName();
         assertThat(expected).factValue("but was").isEqualTo(CLASS.getCharContent(false));
     }
@@ -139,7 +133,6 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInExpected_1() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).hasSourceEquivalentTo(CLASS_WITH_FIELD);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");
     }
@@ -148,9 +141,7 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInExpected_2() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).hasSourceEquivalentTo(CLASS_WITH_FIELD);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(CLASS.getName());
     }
@@ -159,11 +150,8 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInExpected_3() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS).hasSourceEquivalentTo(CLASS_WITH_FIELD);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(CLASS.getName());*/
         CLASS.getName();
         assertThat(expected).factValue("but was").isEqualTo(CLASS.getCharContent(false));
     }
@@ -179,7 +167,6 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInActual_1() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS_WITH_FIELD).hasSourceEquivalentTo(CLASS);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");
     }
@@ -188,9 +175,7 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInActual_2() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS_WITH_FIELD).hasSourceEquivalentTo(CLASS);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(CLASS_WITH_FIELD.getName());
     }
@@ -199,11 +184,8 @@ public final class JavaFileObjectSubjectTest {
     public void hasSourceEquivalentTo_failOnExtraInActual_3() throws IOException {
         expectFailure.whenTesting().about(javaFileObjects()).that(CLASS_WITH_FIELD).hasSourceEquivalentTo(CLASS);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factKeys().contains("expected to be equivalent to");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(CLASS_WITH_FIELD.getName());*/
         CLASS_WITH_FIELD.getName();
         assertThat(expected).factValue("but was").isEqualTo(CLASS_WITH_FIELD.getCharContent(false));
     }

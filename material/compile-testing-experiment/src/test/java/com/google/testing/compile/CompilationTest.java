@@ -54,7 +54,6 @@ public class CompilationTest {
     public void compiler_1() {
         Compiler compiler = compilerWithGenerator();
         Compilation compilation = compiler.compile(source1, source2);
-        /*[Transform from] assertThat(compilation.compiler()).isEqualTo(compiler);[NONE Params]*/
         ;
         assertThat(compilation.sourceFiles()).containsExactly(source1, source2).inOrder();
     }
@@ -63,9 +62,7 @@ public class CompilationTest {
     public void compiler_2() {
         Compiler compiler = compilerWithGenerator();
         Compilation compilation = compiler.compile(source1, source2);
-        /*[Transform from] assertThat(compilation.compiler()).isEqualTo(compiler);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(compilation.sourceFiles()).containsExactly(source1, source2).inOrder();[NONE Params]*/
         ;
         assertThat(compilation.status()).isEqualTo(Compilation.Status.SUCCESS);
     }
@@ -81,7 +78,6 @@ public class CompilationTest {
     public void compilerStatusFailure_1() {
         Compiler compiler = compilerWithGenerator();
         Compilation compilation = compiler.compile(brokenSource);
-        /*[Transform from] assertThat(compilation.status()).isEqualTo(Compilation.Status.FAILURE);[NONE Params]*/
         ;
         assertThat(compilation.errors()).hasSize(1);
     }
@@ -90,9 +86,7 @@ public class CompilationTest {
     public void compilerStatusFailure_2() {
         Compiler compiler = compilerWithGenerator();
         Compilation compilation = compiler.compile(brokenSource);
-        /*[Transform from] assertThat(compilation.status()).isEqualTo(Compilation.Status.FAILURE);[NONE Params]*/
         ;
-        /*[Transform from] assertThat(compilation.errors()).hasSize(1);[NONE Params]*/
         ;
         assertThat(compilation.errors().get(0).getLineNumber()).isEqualTo(3);
     }
@@ -127,7 +121,6 @@ public class CompilationTest {
     @Test
     public void generatedFiles_unsuccessfulCompilationThrows_1() {
         Compilation compilation = javac().compile(JavaFileObjects.forSourceLines("test.Bad", "package test;", "", "this doesn't compile!"));
-        /*[Transform from] assertThat(compilation).failed();[NONE Params]*/
         ;
         try {
             ImmutableList<JavaFileObject> unused = compilation.generatedFiles();
@@ -162,7 +155,6 @@ public class CompilationTest {
         "  int i = (int) 0;", "}");
         // Act
         Compilation compilation = compiler.compile(source);
-        /*[Transform from] assertThat(compilation).failed();[NONE Params]*/
         ;
         assertThat(compilation.describeFailureDiagnostics()).contains("[cast] redundant cast to int");
     }

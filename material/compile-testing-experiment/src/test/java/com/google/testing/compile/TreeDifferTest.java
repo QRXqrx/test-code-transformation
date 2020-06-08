@@ -136,7 +136,6 @@ public class TreeDifferTest {
         @Test
         public void scan_differingCompilationUnits_1() {
             TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
             ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
@@ -146,11 +145,9 @@ public class TreeDifferTest {
         @Test
         public void scan_differingCompilationUnits_2() {
             TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
             ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-            /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
             ;
             assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());
         }
@@ -158,13 +155,10 @@ public class TreeDifferTest {
         @Test
         public void scan_differingCompilationUnits_3() {
             TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
             ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-            /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
             ;
-            /*[Transform from] assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());*/
             extraNodesExpected.size();
             ImmutableList.Builder<SimplifiedDiff> extraNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
             for (TreeDifference.OneWayDiff extraNode : diff.getExtraActualNodes()) {
@@ -176,19 +170,15 @@ public class TreeDifferTest {
         @Test
         public void scan_differingCompilationUnits_4() {
             TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
             ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-            /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
             ;
-            /*[Transform from] assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());*/
             extraNodesExpected.size();
             ImmutableList.Builder<SimplifiedDiff> extraNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
             for (TreeDifference.OneWayDiff extraNode : diff.getExtraActualNodes()) {
                 extraNodesFound.add(SimplifiedDiff.create(extraNode));
             }
-            /*[Transform from] assertThat(extraNodesFound.build()).containsExactlyElementsIn(extraNodesExpected).inOrder();[NONE Params]*/
             ;
             ImmutableList.Builder<SimplifiedDiff> differingNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
             for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
@@ -228,7 +218,6 @@ public class TreeDifferTest {
         @Test
         public void scan_differentTypes_1() {
             TreeDifference diff = TreeDiffer.diffSubtrees(asPath(EXPECTED_TREE), diffToStringTree());
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
                 assertThat(differingNode.getDetails()).contains("Expected node kind to be");
@@ -244,7 +233,6 @@ public class TreeDifferTest {
         @Test
         public void scan_testTwoNullIterableTrees_1() {
             TreeDifference diff = TreeDiffer.diffCompilationUnits(NEW_ARRAY_SIZE_THREE, NEW_ARRAY_SIZE_FOUR);
-            /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
             ;
             for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
                 assertThat(differingNode.getDetails()).contains("Expected literal value to be <3> but was <4>");
@@ -370,7 +358,6 @@ public class TreeDifferTest {
             ParseResult actual = MoreTrees.parseLines("package test;", "", "import foo.Imported;", "", "public class HasExtras { ", "  private Imported field;", "}");
             ParseResult pattern = MoreTrees.parseLines("package test;", "", "import bar.Imported;", "", "public class HasExtras { ", "  private Imported field;", "}");
             TreeDifference diff = TreeDiffer.matchCompilationUnits(getOnlyElement(pattern.compilationUnits()), pattern.trees(), getOnlyElement(actual.compilationUnits()), actual.trees());
-            /*[Transform from] assertThat(diff.getExtraExpectedNodes()).isNotEmpty();[NONE Params]*/
             ;
             assertThat(diff.getExtraActualNodes()).isEmpty();
         }
@@ -396,7 +383,6 @@ public class TreeDifferTest {
             ParseResult actual = MoreTrees.parseLines("package test;", "", "class Foo {", "  private String method1(String s) { return s; }", "  private String method2() { return new String(); }", "}");
             ParseResult pattern = MoreTrees.parseLines("package test;", "", "class Foo {", "  private String method1() { return s; }", "}");
             TreeDifference diff = TreeDiffer.matchCompilationUnits(getOnlyElement(pattern.compilationUnits()), pattern.trees(), getOnlyElement(actual.compilationUnits()), actual.trees());
-            /*[Transform from] assertThat(diff.getExtraExpectedNodes()).isNotEmpty();[NONE Params]*/
             ;
             assertThat(diff.getExtraActualNodes()).isEmpty();
         }
@@ -427,7 +413,6 @@ public class TreeDifferTest {
     @Test
     public void scan_differingCompilationUnits_1() {
         TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
         ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
@@ -437,11 +422,9 @@ public class TreeDifferTest {
     @Test
     public void scan_differingCompilationUnits_2() {
         TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
         ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-        /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
         ;
         assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());
     }
@@ -449,13 +432,10 @@ public class TreeDifferTest {
     @Test
     public void scan_differingCompilationUnits_3() {
         TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
         ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-        /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());*/
         extraNodesExpected.size();
         ImmutableList.Builder<SimplifiedDiff> extraNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
         for (TreeDifference.OneWayDiff extraNode : diff.getExtraActualNodes()) {
@@ -467,19 +447,15 @@ public class TreeDifferTest {
     @Test
     public void scan_differingCompilationUnits_4() {
         TreeDifference diff = TreeDiffer.diffCompilationUnits(EXPECTED_TREE, ACTUAL_TREE);
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         ImmutableList<SimplifiedDiff> extraNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.INT_LITERAL, ""), new SimplifiedDiff(Tree.Kind.METHOD, ""));
         ImmutableList<SimplifiedDiff> differingNodesExpected = ImmutableList.of(new SimplifiedDiff(Tree.Kind.MEMBER_SELECT, "Expected member identifier to be <Set> but was <List>."), new SimplifiedDiff(Tree.Kind.VARIABLE, "Expected variable name to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <numbers> but was <numberz>."), new SimplifiedDiff(Tree.Kind.IDENTIFIER, "Expected identifier to be <IllegalStateException> but was <RuntimeException>."), new SimplifiedDiff(Tree.Kind.BREAK, "Expected label on break statement to be <loop> but was <null>."));
-        /*[Transform from] assertThat(diff.getExtraExpectedNodes().isEmpty()).isTrue();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(diff.getExtraActualNodes().size()).isEqualTo(extraNodesExpected.size());*/
         extraNodesExpected.size();
         ImmutableList.Builder<SimplifiedDiff> extraNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
         for (TreeDifference.OneWayDiff extraNode : diff.getExtraActualNodes()) {
             extraNodesFound.add(SimplifiedDiff.create(extraNode));
         }
-        /*[Transform from] assertThat(extraNodesFound.build()).containsExactlyElementsIn(extraNodesExpected).inOrder();[NONE Params]*/
         ;
         ImmutableList.Builder<SimplifiedDiff> differingNodesFound = new ImmutableList.Builder<SimplifiedDiff>();
         for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
@@ -519,7 +495,6 @@ public class TreeDifferTest {
     @Test
     public void scan_differentTypes_1() {
         TreeDifference diff = TreeDiffer.diffSubtrees(asPath(EXPECTED_TREE), diffToStringTree());
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
             assertThat(differingNode.getDetails()).contains("Expected node kind to be");
@@ -535,7 +510,6 @@ public class TreeDifferTest {
     @Test
     public void scan_testTwoNullIterableTrees_1() {
         TreeDifference diff = TreeDiffer.diffCompilationUnits(NEW_ARRAY_SIZE_THREE, NEW_ARRAY_SIZE_FOUR);
-        /*[Transform from] assertThat(diff.isEmpty()).isFalse();[NONE Params]*/
         ;
         for (TreeDifference.TwoWayDiff differingNode : diff.getDifferingNodes()) {
             assertThat(differingNode.getDetails()).contains("Expected literal value to be <3> but was <4>");
@@ -661,7 +635,6 @@ public class TreeDifferTest {
         ParseResult actual = MoreTrees.parseLines("package test;", "", "import foo.Imported;", "", "public class HasExtras { ", "  private Imported field;", "}");
         ParseResult pattern = MoreTrees.parseLines("package test;", "", "import bar.Imported;", "", "public class HasExtras { ", "  private Imported field;", "}");
         TreeDifference diff = TreeDiffer.matchCompilationUnits(getOnlyElement(pattern.compilationUnits()), pattern.trees(), getOnlyElement(actual.compilationUnits()), actual.trees());
-        /*[Transform from] assertThat(diff.getExtraExpectedNodes()).isNotEmpty();[NONE Params]*/
         ;
         assertThat(diff.getExtraActualNodes()).isEmpty();
     }
@@ -687,7 +660,6 @@ public class TreeDifferTest {
         ParseResult actual = MoreTrees.parseLines("package test;", "", "class Foo {", "  private String method1(String s) { return s; }", "  private String method2() { return new String(); }", "}");
         ParseResult pattern = MoreTrees.parseLines("package test;", "", "class Foo {", "  private String method1() { return s; }", "}");
         TreeDifference diff = TreeDiffer.matchCompilationUnits(getOnlyElement(pattern.compilationUnits()), pattern.trees(), getOnlyElement(actual.compilationUnits()), actual.trees());
-        /*[Transform from] assertThat(diff.getExtraExpectedNodes()).isNotEmpty();[NONE Params]*/
         ;
         assertThat(diff.getExtraActualNodes()).isEmpty();
     }

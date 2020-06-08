@@ -18,12 +18,25 @@ public class TransformerTest {
     private final String bcTestJavaPath = "material/BreadcrumbsTest.java";
 
     public void write(String javaPath) throws IOException {
+        write(javaPath, true);
+    }
+
+    public void write(String javaPath, boolean commentOn) throws IOException {
         File javaFile = new File(javaPath);
         File jptFile = new File(javaFile.getParent(), "JPT/" + javaFile.getName());
         TestCodeTransformer transformer = new TestCodeTransformer();
         transformer.setJavaPath(javaPath);
-        String content = transformer.transformToSrc();
+        String content = transformer.transformToSrc(commentOn);
         IOUtil.writeContentIntoFile(jptFile, content);
+    }
+
+    @Test
+    public void testWriteIntoNewFileWithCommentOn() {
+        try {
+            write(asTestJavaPath, false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

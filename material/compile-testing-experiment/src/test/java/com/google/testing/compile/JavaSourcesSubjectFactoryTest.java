@@ -109,7 +109,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void compilesWithoutError_noWarning_1() {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).compilesWithoutError().withWarningContaining("what is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected).hasMessageThat().contains("this is a message\n");
@@ -128,7 +127,6 @@ public class JavaSourcesSubjectFactoryTest {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).compilesWithoutError().withWarningContaining("this is a message").in(otherSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", otherSource.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s", otherSource.getName());
         assertThat(expected.getMessage()).contains(HELLO_WORLD.getName());
     }
@@ -146,7 +144,6 @@ public class JavaSourcesSubjectFactoryTest {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).compilesWithoutError().withWarningContaining("this is a message").in(HELLO_WORLD).onLine(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -164,7 +161,6 @@ public class JavaSourcesSubjectFactoryTest {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).compilesWithoutError().withWarningContaining("this is a message").in(HELLO_WORLD).onLine(6).atColumn(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -187,7 +183,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void compilesWithoutError_noNote_1() {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).compilesWithoutError().withNoteContaining("what is it?");
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected).hasMessageThat().contains("this is a message\n");
@@ -206,7 +201,6 @@ public class JavaSourcesSubjectFactoryTest {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).compilesWithoutError().withNoteContaining("this is a message").in(otherSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s", otherSource.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s", otherSource.getName());
         assertThat(expected.getMessage()).contains(HELLO_WORLD.getName());
     }
@@ -224,7 +218,6 @@ public class JavaSourcesSubjectFactoryTest {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).compilesWithoutError().withNoteContaining("this is a message").in(HELLO_WORLD).onLine(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -242,7 +235,6 @@ public class JavaSourcesSubjectFactoryTest {
         expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).compilesWithoutError().withNoteContaining("this is a message").in(HELLO_WORLD).onLine(6).atColumn(1);
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -266,7 +258,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void compilesWithoutError_failureReportsFiles_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource(Resources.getResource("HelloWorld.java"))).processedWith(new FailingGeneratingProcessor()).compilesWithoutError();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -275,9 +266,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void compilesWithoutError_failureReportsFiles_2() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource(Resources.getResource("HelloWorld.java"))).processedWith(new FailingGeneratingProcessor()).compilesWithoutError();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Compilation produced the following diagnostics:\n");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(FailingGeneratingProcessor.GENERATED_SOURCE);
     }
@@ -293,7 +282,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void compilesWithoutError_throws_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld-broken.java")).compilesWithoutError();
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).hasMessageThat().contains("Compilation produced the following" + " diagnostics:\n");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("No files were generated.");
     }
@@ -339,7 +327,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_throws_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).failsToCompile();[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Compilation was expected to fail, but contained no errors");
@@ -347,10 +334,8 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_throws_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).failsToCompile();[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Compilation was expected to fail, but contained no errors");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("No files were generated.");
     }
@@ -362,7 +347,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_throwsNoMessage_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("some error");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected an error containing \"some error\", but only found:\n");
@@ -370,10 +354,8 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_throwsNoMessage_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("some error");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Expected an error containing \"some error\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected).hasMessageThat().contains("expected error!\n");
@@ -390,7 +372,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void failsToCompile_throwsNotInFile_1() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
         JavaFileObject otherFileObject = JavaFileObjects.forResource("HelloWorld-different.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(otherFileObject);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains(String.format("Expected an error containing \"expected error!\" in %s", otherFileObject.getName()));
@@ -400,10 +381,8 @@ public class JavaSourcesSubjectFactoryTest {
     public void failsToCompile_throwsNotInFile_2() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
         JavaFileObject otherFileObject = JavaFileObjects.forResource("HelloWorld-different.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(otherFileObject);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected an error containing \"expected error!\" in %s", otherFileObject.getName()));*/
         String.format("Expected an error containing \"expected error!\" in %s", otherFileObject.getName());
         assertThat(expected.getMessage()).contains(fileObject.getName());
     }
@@ -417,7 +396,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_throwsNotOnLine_1() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(fileObject).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 18;
@@ -427,11 +405,9 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_throwsNotOnLine_2() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(fileObject).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 18;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected an error containing \"expected error!\" in %s on line:\n   1: ", fileObject.getName()));*/
         String.format("Expected an error containing \"expected error!\" in %s on line:\n   1: ", fileObject.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -445,7 +421,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_throwsNotAtColumn_1() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(fileObject).onLine(18).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
@@ -455,11 +430,9 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_throwsNotAtColumn_2() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(fileObject).onLine(18).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", fileObject.getName()));*/
         String.format("Expected an error containing \"expected error!\" in %s at column 1 of line 18", fileObject.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorCol);
     }
@@ -473,7 +446,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_wrongErrorCount_1() {
         JavaFileObject fileObject = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(fileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorCount(42);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected 42 errors, but found the following 2 errors:\n");
@@ -486,7 +458,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noWarning_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("what is it?");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected a warning containing \"what is it?\", but only found:\n");
@@ -494,10 +465,8 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noWarning_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("what is it?");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Expected a warning containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected).hasMessageThat().contains("this is a message\n");
@@ -512,7 +481,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_warningNotInFile_1() {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(otherSource);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", otherSource.getName()));
@@ -521,10 +489,8 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_warningNotInFile_2() {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(otherSource);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s", otherSource.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s", otherSource.getName());
         assertThat(expected.getMessage()).contains(HELLO_WORLD_BROKEN.getName());
     }
@@ -536,7 +502,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_warningNotOnLine_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
@@ -545,11 +510,9 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_warningNotOnLine_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD_BROKEN.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD_BROKEN.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -561,7 +524,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_warningNotAtColumn_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(6).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
@@ -570,11 +532,9 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_warningNotAtColumn_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(6).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a warning containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD_BROKEN.getName()));*/
         String.format("Expected a warning containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD_BROKEN.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -586,7 +546,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_wrongWarningCount_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.WARNING)).failsToCompile().withWarningCount(42);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected 42 warnings, but found the following 2 warnings:\n");
@@ -599,7 +558,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noNote_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("what is it?");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected a note containing \"what is it?\", but only found:\n");
@@ -607,10 +565,8 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noNote_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("what is it?");[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Expected a note containing \"what is it?\", but only found:\n");[NONE Params]*/
         ;
         // some versions of javac wedge the file and position in the middle
         assertThat(expected).hasMessageThat().contains("this is a message\n");
@@ -625,7 +581,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_noteNotInFile_1() {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(otherSource);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s", otherSource.getName()));
@@ -634,10 +589,8 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_noteNotInFile_2() {
         JavaFileObject otherSource = JavaFileObjects.forResource("HelloWorld.java");
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(otherSource);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s", otherSource.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s", otherSource.getName());
         assertThat(expected.getMessage()).contains(HELLO_WORLD_BROKEN.getName());
     }
@@ -649,7 +602,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noteNotOnLine_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
@@ -658,11 +610,9 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noteNotOnLine_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorLine = 6;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD_BROKEN.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s on line:\n   1: ", HELLO_WORLD_BROKEN.getName());
         assertThat(expected.getMessage()).contains("" + actualErrorLine);
     }
@@ -674,7 +624,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noteNotAtColumn_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(6).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
@@ -683,11 +632,9 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_noteNotAtColumn_2() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteContaining("this is a message").in(HELLO_WORLD_BROKEN).onLine(6).atColumn(1);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         int actualErrorCol = 8;
-        /*[Transform from] assertThat(expected.getMessage()).contains(String.format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD_BROKEN.getName()));*/
         String.format("Expected a note containing \"this is a message\" in %s at column 1 of line 6", HELLO_WORLD_BROKEN.getName());
         assertThat(expected.getMessage()).contains("[" + actualErrorCol + "]");
     }
@@ -699,7 +646,6 @@ public class JavaSourcesSubjectFactoryTest {
 
     @Test
     public void failsToCompile_wrongNoteCount_1() {
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(HELLO_WORLD_BROKEN).processedWith(new DiagnosticMessage.Processor(Diagnostic.Kind.NOTE)).failsToCompile().withNoteCount(42);[NONE Params]*/
         ;
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("Expected 42 notes, but found the following 2 notes:\n");
@@ -714,7 +660,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void failsToCompile_1() {
         JavaFileObject brokenFileObject = JavaFileObjects.forResource("HelloWorld-broken.java");
-        /*[Transform from] assertAbout(javaSource()).that(brokenFileObject).failsToCompile().withErrorContaining("not a statement").in(brokenFileObject).onLine(23).atColumn(5).and().withErrorCount(4);[NONE Params]*/
         ;
         JavaFileObject happyFileObject = JavaFileObjects.forResource("HelloWorld.java");
         assertAbout(javaSource()).that(happyFileObject).processedWith(new ErrorProcessor()).failsToCompile().withErrorContaining("expected error!").in(happyFileObject).onLine(18).atColumn(8);
@@ -734,7 +679,6 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void generatesSources_failOnUnexpected_2() {
         String failingExpectationSource = "abstract class Blah {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource));*/
         JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("didn't match exactly");
@@ -743,10 +687,8 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void generatesSources_failOnUnexpected_3() {
         String failingExpectationSource = "abstract class Blah {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource));*/
         JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -754,12 +696,9 @@ public class JavaSourcesSubjectFactoryTest {
     @Test
     public void generatesSources_failOnUnexpected_4() {
         String failingExpectationSource = "abstract class Blah {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource));*/
         JavaFileObjects.forSourceString(GeneratingProcessor.GENERATED_CLASS_NAME, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_SOURCE);
     }
@@ -775,7 +714,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraExpected_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "import java.util.List;  // Extra import", "final class Blah {", "   String blah = \"blah\";", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");
     }
@@ -784,9 +722,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraExpected_2() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "import java.util.List;  // Extra import", "final class Blah {", "   String blah = \"blah\";", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -795,11 +731,8 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraExpected_3() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "import java.util.List;  // Extra import", "final class Blah {", "   String blah = \"blah\";", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the expected tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_SOURCE);
     }
@@ -815,7 +748,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraActual_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "final class Blah {", "  // missing field", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");
     }
@@ -824,9 +756,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraActual_2() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "final class Blah {", "  // missing field", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -835,11 +765,8 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failOnExtraActual_3() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceLines(GeneratingProcessor.GENERATED_CLASS_NAME, "final class Blah {", "  // missing field", "}"));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("didn't match exactly");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains("unmatched nodes in the actual tree");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_SOURCE);
     }
@@ -866,7 +793,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failWithNoCandidates_3() {
         String failingExpectationName = "ThisIsNotTheRightFile";
         String failingExpectationSource = "abstract class ThisIsNotTheRightFile {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource));*/
         JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
         assertThat(expected.getMessage()).contains("top-level types that were not present");
@@ -876,10 +802,8 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failWithNoCandidates_4() {
         String failingExpectationName = "ThisIsNotTheRightFile";
         String failingExpectationSource = "abstract class ThisIsNotTheRightFile {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource));*/
         JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("top-level types that were not present");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);
     }
@@ -888,12 +812,9 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesSources_failWithNoCandidates_5() {
         String failingExpectationName = "ThisIsNotTheRightFile";
         String failingExpectationSource = "abstract class ThisIsNotTheRightFile {}";
-        /*[Transform from] expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesSources(JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource));*/
         JavaFileObjects.forSourceString(failingExpectationName, failingExpectationSource);
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("top-level types that were not present");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_CLASS_NAME);[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(failingExpectationName);
     }
@@ -916,7 +837,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesFileNamed_failOnFileExistence_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesFileNamed(CLASS_OUTPUT, "com.google.testing.compile", "Bogus").withContents(ByteSource.wrap("Bar".getBytes(UTF_8)));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected).factValue("expected to generate file").isEqualTo("/com/google/testing/compile/Bogus");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(GeneratingProcessor.GENERATED_RESOURCE_NAME);
     }
@@ -932,7 +852,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void generatesFileNamed_failOnFileContents_1() {
         expectFailure.whenTesting().about(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(new GeneratingProcessor()).compilesWithoutError().and().generatesFileNamed(CLASS_OUTPUT, "com.google.testing.compile", "Foo").withContents(ByteSource.wrap("Bogus".getBytes(UTF_8)));
         AssertionError expected = expectFailure.getFailure();
-        /*[Transform from] assertThat(expected.getMessage()).contains("Foo");[NONE Params]*/
         ;
         assertThat(expected.getMessage()).contains(" have contents");
     }
@@ -948,7 +867,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void passesOptions_1() {
         NoOpProcessor processor = new NoOpProcessor();
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).withCompilerOptions("-Aa=1").withCompilerOptions(ImmutableList.of("-Ab=2", "-Ac=3")).processedWith(processor).compilesWithoutError();
-        /*[Transform from] assertThat(processor.options).containsEntry("a", "1");[NONE Params]*/
         ;
         assertThat(processor.options).containsEntry("b", "2");
     }
@@ -957,9 +875,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void passesOptions_2() {
         NoOpProcessor processor = new NoOpProcessor();
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).withCompilerOptions("-Aa=1").withCompilerOptions(ImmutableList.of("-Ab=2", "-Ac=3")).processedWith(processor).compilesWithoutError();
-        /*[Transform from] assertThat(processor.options).containsEntry("a", "1");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(processor.options).containsEntry("b", "2");[NONE Params]*/
         ;
         assertThat(processor.options).containsEntry("c", "3");
     }
@@ -968,11 +884,8 @@ public class JavaSourcesSubjectFactoryTest {
     public void passesOptions_3() {
         NoOpProcessor processor = new NoOpProcessor();
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).withCompilerOptions("-Aa=1").withCompilerOptions(ImmutableList.of("-Ab=2", "-Ac=3")).processedWith(processor).compilesWithoutError();
-        /*[Transform from] assertThat(processor.options).containsEntry("a", "1");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(processor.options).containsEntry("b", "2");[NONE Params]*/
         ;
-        /*[Transform from] assertThat(processor.options).containsEntry("c", "3");[NONE Params]*/
         ;
         assertThat(processor.options).hasSize(3);
     }
@@ -988,7 +901,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_1() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isFalse();
     }
@@ -997,9 +909,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_2() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(noopProcessor1, noopProcessor2).compilesWithoutError();
         assertThat(noopProcessor1.invoked).isTrue();
@@ -1009,12 +919,9 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_3() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(noopProcessor1, noopProcessor2).compilesWithoutError();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isTrue();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isTrue();
     }
@@ -1030,7 +937,6 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_asIterable_1() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isFalse();
     }
@@ -1039,9 +945,7 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_asIterable_2() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(Arrays.asList(noopProcessor1, noopProcessor2)).compilesWithoutError();
         assertThat(noopProcessor1.invoked).isTrue();
@@ -1051,12 +955,9 @@ public class JavaSourcesSubjectFactoryTest {
     public void invokesMultipleProcesors_asIterable_3() {
         NoOpProcessor noopProcessor1 = new NoOpProcessor();
         NoOpProcessor noopProcessor2 = new NoOpProcessor();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isFalse();[NONE Params]*/
         ;
-        /*[Transform from] assertThat(noopProcessor2.invoked).isFalse();[NONE Params]*/
         ;
         assertAbout(javaSource()).that(JavaFileObjects.forResource("HelloWorld.java")).processedWith(Arrays.asList(noopProcessor1, noopProcessor2)).compilesWithoutError();
-        /*[Transform from] assertThat(noopProcessor1.invoked).isTrue();[NONE Params]*/
         ;
         assertThat(noopProcessor2.invoked).isTrue();
     }

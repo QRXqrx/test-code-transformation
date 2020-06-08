@@ -15,10 +15,10 @@ import nju.pa.util.JunitAssertUtil;
  * @email QRXwzx@outlook.com
  * @date 2020-06-07
  */
-public class JasModifier extends ModifierVisitor<Void> {
+public class JasModifier extends ModifierVisitor<Boolean> {
 
     @Override
-    public Visitable visit(ExpressionStmt n, Void arg) {
+    public Visitable visit(ExpressionStmt n, Boolean arg) {
         super.visit(n, arg);
         // Only modify when n is a jas
         if(JunitAssertUtil.isJunitAssertStmt(n)) {
@@ -26,16 +26,19 @@ public class JasModifier extends ModifierVisitor<Void> {
             n.removeComment(); // When transform twice, parsing error will occur.
             if(statements.size() > 1) {
                 BlockStmt bs = new BlockStmt();
-                bs.setBlockComment("[Transform from] " + n.toString());
+                if(arg)
+                    bs.setBlockComment("[Transform from] " + n.toString());
                 statements.forEach(bs::addStatement);
                 return bs;
             } else if(statements.size() == 1) {
                 Statement stmt = statements.get(0);
-                stmt.setBlockComment("[Transform from] " + n.toString());
+                if(arg)
+                    stmt.setBlockComment("[Transform from] " + n.toString());
                 return stmt;
             } else {
                 EmptyStmt emptyStmt = new EmptyStmt();
-                emptyStmt.setBlockComment("[Transform from] " + n.toString() + "[NONE Params]");
+                if(arg)
+                    emptyStmt.setBlockComment("[Transform from] " + n.toString() + "[NONE Params]");
                 return emptyStmt;
             }
         }
