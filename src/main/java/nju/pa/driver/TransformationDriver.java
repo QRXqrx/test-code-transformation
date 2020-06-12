@@ -20,13 +20,14 @@ import java.util.Set;
  */
 public class TransformationDriver {
 
+    private static final String EMPTY_PARAM = "";
     private static final String NEW_LINE = System.lineSeparator();
     // option - param
     private static final Map<String, String> paramsMap = new HashMap<>();
     static {
-        paramsMap.put("-d", ""); // -d: A directory which contains .java files want transforming.
-        paramsMap.put("-f", ""); // -f: A single file which wants transforming.
-        paramsMap.put("-c", ""); // -c: In generated java file: comment on or off(true or false).
+        paramsMap.put("-d", EMPTY_PARAM); // -d: A directory which contains .java files want transforming.
+        paramsMap.put("-f", EMPTY_PARAM); // -f: A single file which wants transforming.
+        paramsMap.put("-c", EMPTY_PARAM); // -c: In generated java file: comment on or off(true or false).
     }
 
     public static void main(String[] args) {
@@ -42,10 +43,10 @@ public class TransformationDriver {
         System.out.println("[paramsMap]" + paramsMap);
 
         boolean commentOn = true;
-        if(!"".equals(paramsMap.get("-c")))
+        if(!emptyOption("-c"))
             commentOn = Boolean.parseBoolean(paramsMap.get("-c"));
 
-        if(!"".equals(paramsMap.get("-d"))) { // -d is not empty
+        if(!emptyOption("-d")) { // -d is not empty
             String dirPath = paramsMap.get("-d");
             List<File> testJavaFiles = IOUtil.getAllFilesBySuffix(dirPath, IOUtil.JAVA_SUFFIX);
             // Transform all java files.
@@ -63,7 +64,7 @@ public class TransformationDriver {
             }
         }
 
-        if(!"".equals(paramsMap.get("-f"))) { // -d is not empty
+        if(!emptyOption("-f")) { // -d is not empty
             String javaPath = paramsMap.get("-f");
             TestCodeTransformer transformer = new TestCodeTransformer(javaPath);
             System.out.println(String.format("[LOG] Now process %s", javaPath));
@@ -76,6 +77,10 @@ public class TransformationDriver {
             }
         }
 
+    }
+
+    private static boolean emptyOption(String option) {
+        return EMPTY_PARAM.equals(paramsMap.get(option));
     }
 
     private static boolean isCmdOption(String arg) {
