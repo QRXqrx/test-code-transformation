@@ -29,7 +29,7 @@ public class NewTestAdder extends ModifierVisitor<List<MethodDeclaration>> {
 //        Util.simpleLog("isNestedType", cid.isNestedType());
 //        Util.simpleLog("isInterface", cid.isInterface());
 //        //
-        if(!cid.isNestedType()) { // Don't add test methods to nested class.
+        if(!cid.isNestedType()) { // Don't add test methods to nested class. Note that nested class and inner class are distinctly different terminology.
             NodeList<BodyDeclaration<?>> members = cid.getMembers();
             members.addAll(toBeAdded);
             cid.setMembers(members);

@@ -23,8 +23,9 @@ import java.util.Optional;
 
 /**
  * The core of test code transformation. This class will leverage diverse visitors to
- * implement transformation. The ultimate target of this class is to split test case
- * contains several
+ * implement transformation. The ultimate target of this class is to split test method
+ * contains several final statements into test methods each of which only contains one
+ * untransformed final statement.
  *
  * @author QRX
  * @email QRXwzx@outlook.com
@@ -84,6 +85,11 @@ public class TestCodeTransformer {
 
     public void transform() { transform(true); }
 
+    /**
+     * The integrated process of transformation.
+     *
+     * @param commentOn Whether generated test code has comments about where the changed code come from.
+     */
     public void transform(boolean commentOn) {
         if(alreadyTransformed) return;
         // Collect all old test methods.
@@ -101,6 +107,13 @@ public class TestCodeTransformer {
         alreadyTransformed = true;
     }
 
+    /**
+     * Split old test methods into new test methods.
+     *
+     * @param oldTMDs Original test methods, represented by MethodDeclarations.
+     * @param commentOn Whether generated test code has comments about where the changed code come from.
+     * @return A list of MethodDeclarations represents transformed test methods.
+     */
     private List<MethodDeclaration> generateNewTestMethods(List<MethodDeclaration> oldTMDs, boolean commentOn) {
         NodeList<MethodDeclaration> newTMDs = new NodeList<>();
         for (MethodDeclaration oldTMD : oldTMDs)
@@ -108,6 +121,13 @@ public class TestCodeTransformer {
         return newTMDs;
     }
 
+    /**
+     * Split one original test methods into several new test methods according to junit assert* statement.
+     *
+     * @param oldTMD A MethodDeclaration instance represents one original test method.
+     * @param commentOn Whether generated test code has comments about where the changed code come from.
+     * @return A list of MethodDeclarations represents test methods split from the original test method.
+     */
     private List<MethodDeclaration> splitOneOldTestMethod(MethodDeclaration oldTMD, boolean commentOn) {
         // Build new method bodies.
         Optional<BlockStmt> op = oldTMD.getBody();
@@ -157,9 +177,16 @@ public class TestCodeTransformer {
         return newTMDs;
     }
 
+    /**
+     * Name the generated test methods using old simple name and count number.
+     *
+     * @param oldSimpleName The simple name of one original test method.
+     * @param cnt The index of the generated test methods in new test methods list.
+     * @return New simple name for transformed test methods. New name is like: OldSimpleName_cnt.
+     */
     private SimpleName toNewSimpleName(SimpleName oldSimpleName, int cnt) {
-        if(cnt == 0)
-            return oldSimpleName;
+//        if(cnt == 0) // For the first generated test method, don't add cnt for it.
+//            return oldSimpleName;
         return toNewSimpleName(oldSimpleName.asString(), cnt);
     }
 
