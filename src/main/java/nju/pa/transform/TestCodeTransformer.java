@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * The core of test code transformation. This class will leverage diverse visitors to
@@ -163,6 +164,10 @@ public class TestCodeTransformer {
             }
         }
 
+        // Deduplicate new method bodies.
+        List<BlockStmt> tempBodies = newBodies.stream().distinct().collect(Collectors.toList());
+        newBodies = new NodeList<>(tempBodies);
+
         // Construct new test methods.
         NodeList<MethodDeclaration> newTMDs = new NodeList<>();
         for(int i = 0 ; i < newBodies.size() ; i++) { // Each body for one new test method.
@@ -176,6 +181,7 @@ public class TestCodeTransformer {
         }
         return newTMDs;
     }
+
 
     /**
      * Name the generated test methods using old simple name and count number.

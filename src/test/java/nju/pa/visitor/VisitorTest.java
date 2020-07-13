@@ -7,11 +7,11 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.Statement;
+import nju.pa.util.Util;
 import nju.pa.visitor.collector.FinalStmtCollector;
 import nju.pa.visitor.collector.TestMethodCollector;
 import org.junit.Assert;
 import org.junit.Test;
-import util.Util;
 
 import java.io.File;
 import java.io.FileNotFoundException;

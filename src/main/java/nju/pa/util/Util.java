@@ -1,5 +1,6 @@
 package nju.pa.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
 public class Util {
 
     private Util(){}
+
 
 
     public static <E> void dumpList(List<E> elems, String split){
