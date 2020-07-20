@@ -17,7 +17,10 @@ import nju.pa.visitor.modifier.NewTestAdder;
 import nju.pa.visitor.modifier.OldTestRemover;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -133,7 +136,7 @@ public class TestCodeTransformer {
         // Build new method bodies.
         Optional<BlockStmt> op = oldTMD.getBody();
         if(!op.isPresent())
-            throw new EmptyMethodBodyException("Test method don't have body!" + oldTMD.getDeclarationAsString());
+            throw new EmptyMethodBodyException("Test method doesn't have body!" + oldTMD.getDeclarationAsString());
 
         NodeList<Statement> oldTMDStmts = op.get().getStatements();
         NodeList<BlockStmt> newBodies = new NodeList<>();
@@ -191,12 +194,14 @@ public class TestCodeTransformer {
      * @return New simple name for transformed test methods. New name is like: OldSimpleName_cnt.
      */
     private SimpleName toNewSimpleName(SimpleName oldSimpleName, int cnt) {
-//        if(cnt == 0) // For the first generated test method, don't add cnt for it.
-//            return oldSimpleName;
+        if(cnt == 0) // For the first generated test method, don't add cnt for it.
+            return oldSimpleName;
         return toNewSimpleName(oldSimpleName.asString(), cnt);
     }
 
     private SimpleName toNewSimpleName(String oldSimpleNameStr, int cnt) {
+        if(cnt == 0)
+            return new SimpleName(oldSimpleNameStr);
         StringBuilder newNameBuilder = new StringBuilder(oldSimpleNameStr.length() + 5);
         newNameBuilder.append(oldSimpleNameStr).append("_").append(cnt);
         return new SimpleName(newNameBuilder.toString());

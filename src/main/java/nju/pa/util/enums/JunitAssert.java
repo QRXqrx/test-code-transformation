@@ -19,13 +19,14 @@ public enum JunitAssert {
 
     ASSERT_TRUE("assertTrue"),
 
-    assert_False("assertFalse"),
+    ASSERT_FALSE("assertFalse"),
 
     ASSERT_NOT_EQUALS("assertNotEquals"),
 
     ASSERT_NULL("assertNull"),
 
-    ASSERT_SAME("assertSame"),
+    // TODO: Support assertSame, assertThat...
+    ASSERT_SAME("assertSame"), // assertSame is like assertThat
 
     ASSERT_NOT_SAME("assertNotSame"),
 

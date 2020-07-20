@@ -18,6 +18,11 @@ import java.util.Map;
 public class FunctionTest {
 
     @Test
+    public void testDetectingAbstract() {
+
+    }
+
+    @Test
     public void testBlockStmtEquals() {
         BlockStmt blockStmt1 = new BlockStmt();
         BlockStmt blockStmt2 = new BlockStmt();

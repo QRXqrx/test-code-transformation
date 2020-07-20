@@ -22,6 +22,8 @@ public class IOUtil {
     public static final String TXT_SUFFIX = ".txt";
     public static final String NEW_LINE = System.lineSeparator();
 
+    public static String defaultCharset = "UTF-8";
+
     /**
      * Get all files that has a suffix as <param>suffix</param>
      * under directory <param>directory</param> recursively.
@@ -79,30 +81,6 @@ public class IOUtil {
     }
 
 
-    public static String writeContentIntoFile(File file, String content) throws IOException {
-        if(!file.exists()) {
-            boolean newFile = file.createNewFile();
-            if(newFile) {
-                System.out.println("Create new file: " + file.getAbsolutePath());
-            } else {
-                throw new RuntimeException("Create new file failed!");
-            }
-        }
-        if(!file.canWrite()) {
-            throw new IllegalArgumentException(file + ": cannot be written");
-        }
-        if(!file.isFile()) {
-            throw new IllegalArgumentException("Invalid path. Please input file path.");
-        }
-
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-        bw.write(content);
-        bw.newLine();
-
-        bw.close();
-        return file.getAbsolutePath();
-    }
-
 
     /**
      *
@@ -119,6 +97,52 @@ public class IOUtil {
         }
         File file = new File(path);
         return writeContentIntoFile(file, content);
+    }
+
+    public static String writeContentIntoFile(File file, String content) throws IOException {
+        return writeContentIntoFile(file, content, false);
+    }
+
+    public static String writeContentIntoFile(File file, String content, boolean appendOn) throws IOException {
+        return writeContentIntoFile(file, content, appendOn, defaultCharset);
+    }
+
+    public static String writeContentIntoFile(File file, String content, String charset) throws IOException {
+        return writeContentIntoFile(file, content, false, charset);
+    }
+
+    public static String writeContentIntoFile(String path, String content, String charset) throws IOException {
+        return writeContentIntoFile(new File(path), content, false, charset);
+    }
+
+    public static void setDefaultCharset(String charset) {
+        defaultCharset = charset;
+        System.out.println("[From IOUtil.setDefaultCharset] Now default charset is " + charset);
+    }
+
+    public static String writeContentIntoFile(File file, String content, boolean appendOn, String charset)
+            throws IOException {
+        if(!file.exists()) {
+            boolean newFile = file.createNewFile();
+            if(newFile) {
+                System.out.println("Create new file: " + file.getAbsolutePath());
+            } else {
+                throw new RuntimeException("Create new file failed!");
+            }
+        }
+        if(!file.canWrite()) {
+            throw new IllegalArgumentException(file + ": cannot be written");
+        }
+        if(!file.isFile()) {
+            throw new IllegalArgumentException("Invalid path. Please input file path.");
+        }
+
+        BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, appendOn), charset));
+        bw.write(content);
+        bw.newLine();
+
+        bw.close();
+        return file.getAbsolutePath();
     }
 
     public static String writeContentsIntoFile(String path, List<String> contents) throws IOException {

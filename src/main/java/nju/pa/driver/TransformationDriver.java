@@ -1,6 +1,6 @@
 package nju.pa.driver;
 
-import nju.pa.exception.InvalidCmdOption;
+import nju.pa.exception.InvalidCmdOptionException;
 import nju.pa.transform.TestCodeTransformer;
 import nju.pa.util.IOUtil;
 
@@ -24,6 +24,11 @@ public class TransformationDriver {
     private static final String NEW_LINE = System.lineSeparator();
     // option - param
     private static final Map<String, String> paramsMap = new HashMap<>();
+
+    private static final String CHARSET = "ISO-8859-1";
+//    private static final String CHARSET = "KSC5601";
+//    private static final String CHARSET = "UTF-8";
+
     static {
         paramsMap.put("-d", EMPTY_PARAM); // -d: A directory which contains .java files want transforming.
         paramsMap.put("-f", EMPTY_PARAM); // -f: A single file which wants transforming.
@@ -35,7 +40,7 @@ public class TransformationDriver {
         for(int i = 0 ; i < args.length; i += 2) {
             String option = args[i];
             if(!isCmdOption(option))
-                throw new InvalidCmdOption(exceptionMsg(option));
+                throw new InvalidCmdOptionException(exceptionMsg(option));
             // TODO - Change this part if param classes is enlarged.
             paramsMap.put(option, args[i + 1]);
         }
@@ -55,7 +60,8 @@ public class TransformationDriver {
                 transformer.setJavaFile(testJavaFile);
                 System.out.println(String.format("[LOG] Now process [%s]", testJavaFile.getAbsolutePath()));
                 try {
-                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn));
+//                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn));
+                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn), CHARSET);
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println(String.format("[LOG] Write content to [%s] failed.", testJavaFile.getAbsolutePath()));
@@ -69,7 +75,8 @@ public class TransformationDriver {
             TestCodeTransformer transformer = new TestCodeTransformer(javaPath);
             System.out.println(String.format("[LOG] Now process %s", javaPath));
             try {
-                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn));
+//                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn));
+                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn), CHARSET);
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(String.format("[LOG] Write content to [%s] failed.", javaPath));

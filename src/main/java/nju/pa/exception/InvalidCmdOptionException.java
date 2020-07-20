@@ -7,10 +7,10 @@ package nju.pa.exception;
  * @email QRXwzx@outlook.com
  * @date 2020-06-07
  */
-public class InvalidCmdOption extends RuntimeException{
+public class InvalidCmdOptionException extends RuntimeException{
     static final long serialVersionUID = -71246614124939L;
 
-    public InvalidCmdOption(String msg) {
+    public InvalidCmdOptionException(String msg) {
         super(msg);
     }
 }
