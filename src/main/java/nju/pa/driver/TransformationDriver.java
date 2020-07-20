@@ -25,7 +25,7 @@ public class TransformationDriver {
     // option - param
     private static final Map<String, String> paramsMap = new HashMap<>();
 
-    private static final String CHARSET = "ISO-8859-1";
+//    private static final String CHARSET = "ISO-8859-1";
 //    private static final String CHARSET = "KSC5601";
 //    private static final String CHARSET = "UTF-8";
 
@@ -60,8 +60,8 @@ public class TransformationDriver {
                 transformer.setJavaFile(testJavaFile);
                 System.out.println(String.format("[LOG] Now process [%s]", testJavaFile.getAbsolutePath()));
                 try {
-//                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn));
-                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn), CHARSET);
+                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn));
+//                    IOUtil.writeContentIntoFile(testJavaFile, transformer.transformToSrc(commentOn), CHARSET);
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println(String.format("[LOG] Write content to [%s] failed.", testJavaFile.getAbsolutePath()));
@@ -75,8 +75,8 @@ public class TransformationDriver {
             TestCodeTransformer transformer = new TestCodeTransformer(javaPath);
             System.out.println(String.format("[LOG] Now process %s", javaPath));
             try {
-//                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn));
-                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn), CHARSET);
+                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn));
+//                IOUtil.writeContentIntoFile(javaPath, transformer.transformToSrc(commentOn), CHARSET);
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println(String.format("[LOG] Write content to [%s] failed.", javaPath));

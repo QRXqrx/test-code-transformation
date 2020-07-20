@@ -1,12 +1,18 @@
 package function;
 
 import com.github.javaparser.StaticJavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.Statement;
 import nju.pa.util.Util;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,8 +24,39 @@ import java.util.Map;
 public class FunctionTest {
 
     @Test
+    public void testDetectingAbstract1() {
+        String path = "C:/Users/QRX/IdeaProjects/test-code-transformation/src/test/java/function/Test.java";
+        File javaFile = new File(path);
+        try {
+            CompilationUnit cu = StaticJavaParser.parse(javaFile);
+            NodeList<TypeDeclaration<?>> types = cu.getTypes();
+            System.out.println(types.size());
+            for (TypeDeclaration<?> type : types) {
+                System.out.println(type.getFullyQualifiedName());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
     public void testDetectingAbstract() {
-
+        String path = "C:/Users/QRX/IdeaProjects/test-code-transformation/material/issue/ParserTestCase.java";
+        File javaFile = new File(path);
+        try {
+            CompilationUnit cu = StaticJavaParser.parse(javaFile);
+            NodeList<TypeDeclaration<?>> types = cu.getTypes();
+            System.out.println(types.size());
+            TypeDeclaration<?> typeDeclaration = types.get(0);
+            if(typeDeclaration instanceof ClassOrInterfaceDeclaration) {
+                ClassOrInterfaceDeclaration classOrInterface = (ClassOrInterfaceDeclaration) typeDeclaration;
+                if(classOrInterface.isInterface())
+                    System.out.println(classOrInterface.getFullyQualifiedName() + "is an interface.");
+                System.out.println(classOrInterface.getName() + "[-]" +classOrInterface.isAbstract());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

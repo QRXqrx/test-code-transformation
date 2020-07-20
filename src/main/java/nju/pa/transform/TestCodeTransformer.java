@@ -3,7 +3,9 @@ package nju.pa.transform;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.Statement;
@@ -17,10 +19,7 @@ import nju.pa.visitor.modifier.NewTestAdder;
 import nju.pa.visitor.modifier.OldTestRemover;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -87,7 +86,23 @@ public class TestCodeTransformer {
         return cu.toString();
     }
 
+
     public void transform() { transform(true); }
+
+    private void transformOneClass(ClassOrInterfaceDeclaration aClassType, boolean commentOn) {
+        // Collect all old test methods.
+        TestMethodCollector tmdCollector = new TestMethodCollector();
+        List<MethodDeclaration> oldTMDs = new NodeList<>();
+        tmdCollector.visit(aClassType, oldTMDs);
+        // Remove all old test methods.
+        OldTestRemover remover = new OldTestRemover();
+        remover.visit(aClassType, oldTMDs);
+        // Generate new test methods.
+        List<MethodDeclaration> newTMDs = generateNewTestMethods(oldTMDs, commentOn);
+        // Add new test methods.
+        NewTestAdder adder = new NewTestAdder();
+        adder.visit(aClassType, newTMDs);
+    }
 
     /**
      * The integrated process of transformation.
@@ -96,20 +111,46 @@ public class TestCodeTransformer {
      */
     public void transform(boolean commentOn) {
         if(alreadyTransformed) return;
-        // Collect all old test methods.
-        TestMethodCollector tmdCollector = new TestMethodCollector();
-        List<MethodDeclaration> oldTMDs = new NodeList<>();
-        tmdCollector.visit(cu, oldTMDs);
-        // Remove all old test methods.
-        OldTestRemover remover = new OldTestRemover();
-        remover.visit(cu, oldTMDs);
-        // Generate new test methods.
-        List<MethodDeclaration> newTMDs = generateNewTestMethods(oldTMDs, commentOn);
-        // Add new test methods.
-        NewTestAdder adder = new NewTestAdder();
-        adder.visit(cu, newTMDs);
+        NodeList<TypeDeclaration<?>> types = cu.getTypes();
+        for (TypeDeclaration<?> type : types) {
+            if(type instanceof ClassOrInterfaceDeclaration) {
+                ClassOrInterfaceDeclaration classOrInterface = (ClassOrInterfaceDeclaration) type;
+                if(classOrInterface.isInterface()) {
+                    String pattern = "[LOG] type[%s] in file[%s] is not a class so it cannot be a test class, pass";
+                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+                    continue;
+                }
+                if(classOrInterface.isAbstract()) {
+                    String pattern = "[LOG] type[%s] in file[%s] is an abstract class, pass";
+                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+                    continue;
+                }
+                transformOneClass(classOrInterface, commentOn);
+            } else {
+                String pattern = "[LOG] type[%s] in file[%s] is not a class or an interface, pass";
+                System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+            }
+        }
         alreadyTransformed = true;
     }
+
+    // Method Transform before 20200720
+//    public void transform(boolean commentOn) {
+//        if(alreadyTransformed) return;
+//        // Collect all old test methods.
+//        TestMethodCollector tmdCollector = new TestMethodCollector();
+//        List<MethodDeclaration> oldTMDs = new NodeList<>();
+//        tmdCollector.visit(cu, oldTMDs);
+//        // Remove all old test methods.
+//        OldTestRemover remover = new OldTestRemover();
+//        remover.visit(cu, oldTMDs);
+//        // Generate new test methods.
+//        List<MethodDeclaration> newTMDs = generateNewTestMethods(oldTMDs, commentOn);
+//        // Add new test methods.
+//        NewTestAdder adder = new NewTestAdder();
+//        adder.visit(cu, newTMDs);
+//        alreadyTransformed = true;
+//    }
 
     /**
      * Split old test methods into new test methods.
