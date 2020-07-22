@@ -246,12 +246,16 @@ public class IOUtil {
     }
 
     public static String suffixOf(File file) {
-        if(file.isDirectory()) {
+        if(file.isDirectory())
             return "";
-        }
+
         String fileName = file.getName();
         int loc = fileName.lastIndexOf('.');
-        return fileName.substring(loc);
+        if(loc != -1)
+            return fileName.substring(loc);
+
+        System.out.println(String.format("File[%s] has no suffix.", fileName));
+        return "";
     }
 
     public static String simpleName(String filePath) {
