@@ -25,6 +25,8 @@ public enum JunitAssert {
 
     ASSERT_NULL("assertNull"),
 
+    ASSERT_NOT_NULL("assertNotNull"),
+
     // TODO: Support assertSame, assertThat...
     ASSERT_SAME("assertSame"), // assertSame is like assertThat
 

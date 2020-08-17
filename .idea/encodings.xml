@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/material/issue/MimeUtilityTestCase.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/material/issue/commons-cli-master/src/test/java/org/apache/commons/cli/ArgumentIsOptionTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/material/issue/origin/MimeUtilityTestCase.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/java/nju/pa/driver/TransformationDriver.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/nju/pa/issue/WrongEncodeTest.java" charset="UTF-8" />
+  </component>
+</project>
