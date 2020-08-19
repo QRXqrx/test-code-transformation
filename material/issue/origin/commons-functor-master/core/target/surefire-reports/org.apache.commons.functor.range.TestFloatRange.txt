@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.apache.commons.functor.range.TestFloatRange
+-------------------------------------------------------------------------------
+Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec - in org.apache.commons.functor.range.TestFloatRange

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CollectionTransformer.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *      http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.commons.functor.generator.util;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.functor.Function;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.functor.Procedure;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.functor.generator.Generator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.lang3.Validate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Transforms a generator into a collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param &#60;E&#62; the type of elements held in the adapted collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param &#60;C&#62; the type of the adapted collection</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @since 1.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version $Revision$ $Date$</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class CollectionTransformer&#60;E, C extends Collection&#60;? super E&#62;&#62; implements Function&#60;Generator&#60;? extends E&#62;, C&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // instance methods</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    //---------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The adapted collection has to be filled.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final C toFill;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // constructors</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    //---------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Create a new CollectionTransformer.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param toFill Collection to fill</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @throws NullPointerException if the collection is {@code null}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public CollectionTransformer(C toFill) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.toFill = Validate.notNull(toFill, &#34;toFill&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // instance methods</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    //---------------------------------------------------</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Run the {@link Generator} adding each element produced into the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * collection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param generator the generator</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the C collection filled with the elements produced by the generator</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public C evaluate(Generator&#60;? extends E&#62; generator) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_62'>1</a>
+<span>
+1. evaluate : removed call to org/apache/commons/functor/generator/Generator::run &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        generator.run(new Procedure&#60;E&#62;() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            public void run(E obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                toFill.add(obj);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        });</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_67'>1</a>
+<span>
+1. evaluate : mutated return of Object value for org/apache/commons/functor/generator/util/CollectionTransformer::evaluate to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return toFill;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Get a {@link CollectionTransformer} instance that simply returns any {@link Collection}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param &#60;E&#62; the collection type</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return {@link CollectionTransformer}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static &#60;E&#62; CollectionTransformer&#60;E, Collection&#60;E&#62;&#62; toCollection() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_76'>1</a>
+<span>
+1. toCollection : mutated return of Object value for org/apache/commons/functor/generator/util/CollectionTransformer::toCollection to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new CollectionTransformer&#60;E, Collection&#60;E&#62;&#62;(new ArrayList&#60;E&#62;());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@46fbebfb_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46fbebfb_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>evaluate<br/><b>Killed by : </b>org.apache.commons.functor.TestAlgorithms.testApply3(org.apache.commons.functor.TestAlgorithms)</span></span> removed call to org/apache/commons/functor/generator/Generator::run &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46fbebfb_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>evaluate<br/><b>Killed by : </b>org.apache.commons.functor.TestAlgorithms.testApply3(org.apache.commons.functor.TestAlgorithms)</span></span> mutated return of Object value for org/apache/commons/functor/generator/util/CollectionTransformer::evaluate to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@46fbebfb_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@46fbebfb_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toCollection<br/><b>Killed by : </b>org.apache.commons.functor.example.lines.TestLines.testFindMatchingLines(org.apache.commons.functor.example.lines.TestLines)</span></span> mutated return of Object value for org/apache/commons/functor/generator/util/CollectionTransformer::toCollection to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.commons.functor.example.QuicksortExample.testSortRandom(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testReverseRange(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply2(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariants(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testTransformedGenerator(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseStep(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testForwardRange(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply(org.apache.commons.functor.TestAlgorithms) (10 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenAscending(org.apache.commons.functor.range.TestFloatRange) (13 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testForwardRange(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortSingleValueList(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testStep(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (4 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testToCollection(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testToCollection(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testToCollection(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testTransformedGenerator(org.apache.commons.functor.range.TestFloatRange) (3 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testObjectConstructor(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testToCollection(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testReject2(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (5 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testGenerateListExample(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithArray(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithStop(org.apache.commons.functor.generator.util.TestEachElement) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testTransformedGenerator(org.apache.commons.functor.range.TestDoubleRange) (2 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testStep(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (9 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (6 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testTransformedGenerator(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testBuiltIn(org.apache.commons.functor.example.kata.two.TestBinaryChop) (26 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testFindMatchingLines(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedDescending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortSingleElementList(org.apache.commons.functor.example.QuicksortExample) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseStep(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseStep(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepAscending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testTransformedGenerator(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithMap(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariantsAndAssertions(org.apache.commons.functor.example.kata.two.TestBinaryChop) (3 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testObjectConstructor(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testSelect1(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testForwardRange(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseRange(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testGenerateListExample(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testObjectConstructor(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseRange(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortReversed(org.apache.commons.functor.example.QuicksortExample) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testToCollection(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.TestBaseGenerator.testTo(org.apache.commons.functor.generator.TestBaseGenerator) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testStep(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testSelect2(org.apache.commons.functor.TestAlgorithms) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testReject1(org.apache.commons.functor.TestAlgorithms) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testObjectConstructor(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseRange(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testReverseStep(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedAscending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testForwardRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testFindMatchingFromTail(org.apache.commons.functor.example.lines.TestLines) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestLoopGenerator.testTo(org.apache.commons.functor.generator.loop.TestLoopGenerator) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortShuffled(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testForwardRange(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortSorted(org.apache.commons.functor.example.QuicksortExample) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply3(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testGenerateListExample(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter.testGenerate(org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testEdgeCase(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testTimings(org.apache.commons.functor.example.QuicksortExample) (302 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testObjectConstructor(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterative(org.apache.commons.functor.example.kata.two.TestBinaryChop) (8 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testStep(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testEdgeCase(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithList(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithIterator(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>

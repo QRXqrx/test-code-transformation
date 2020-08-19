@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>LoopGenerator.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *      http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.commons.functor.generator.loop;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.functor.generator.BaseGenerator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.functor.generator.Generator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Base class for generators that control execution flow, and may need to</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * stop the generation.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param &#60;E&#62; the type of elements held in this generator.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @since 1.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version $Revision$ $Date$</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class LoopGenerator&#60;E&#62; extends BaseGenerator&#60;E&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** A generator can wrap another generator. */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Generator&#60;? extends E&#62; wrappedGenerator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Set to true when the generator is {@link #stop stopped}. */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private boolean stopped = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Create a new generator. */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public LoopGenerator() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this(null);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A generator can wrap another generator. When wrapping generators you</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * should use probably this constructor since doing so will cause the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@link #stop} method to stop the wrapped generator as well.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param generator Generator to wrap</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public LoopGenerator(Generator&#60;? extends E&#62; generator) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.wrappedGenerator = generator;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Get the generator that is being wrapped.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return Generator</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Generator&#60;? extends E&#62; getWrappedGenerator() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_56'>1</a>
+<span>
+1. getWrappedGenerator : mutated return of Object value for org/apache/commons/functor/generator/loop/LoopGenerator::getWrappedGenerator to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return wrappedGenerator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Stop the generator. Will stop the wrapped generator if one was set.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void stop() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_63'>2</a>
+<span>
+1. stop : negated conditional &rarr; KILLED<br/>
+2. stop : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (wrappedGenerator != null &#38;&#38; wrappedGenerator instanceof LoopGenerator&#60;?&#62;) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_64'>1</a>
+<span>
+1. stop : removed call to org/apache/commons/functor/generator/loop/LoopGenerator::stop &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            ((LoopGenerator&#60;?&#62;) wrappedGenerator).stop();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        stopped = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Check if the generator is stopped.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return &#60;code&#62;true&#60;/code&#62; if the generator is stopped, &#60;code&#62;false&#60;/code&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * otherwise</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isStopped() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_75'>1</a>
+<span>
+1. isStopped : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return stopped;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@311dc8d0_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@311dc8d0_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWrappedGenerator<br/><b>Killed by : </b>org.apache.commons.functor.generator.loop.TestLoopGenerator.testWrappingGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator)</span></span> mutated return of Object value for org/apache/commons/functor/generator/loop/LoopGenerator::getWrappedGenerator to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@311dc8d0_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>stop<br/><b>Killed by : </b>org.apache.commons.functor.generator.loop.TestLoopGenerator.testWrappingGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>stop<br/><b>Killed by : </b>org.apache.commons.functor.generator.loop.TestLoopGenerator.testWrappingGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@311dc8d0_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>stop<br/><b>Killed by : </b>org.apache.commons.functor.generator.loop.TestLoopGenerator.testWrappingGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator)</span></span> removed call to org/apache/commons/functor/generator/loop/LoopGenerator::stop &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@311dc8d0_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@311dc8d0_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isStopped<br/><b>Killed by : </b>org.apache.commons.functor.generator.loop.TestLoopGenerator.testStop(org.apache.commons.functor.generator.loop.TestLoopGenerator)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.commons.functor.example.QuicksortExample.testSortRandom(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testReverseRange(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply2(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testEquals(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariants(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testTransformedGenerator(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.core.algorithm.TestFoldRight.testFoldRight(org.apache.commons.functor.core.algorithm.TestFoldRight) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseStep(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator.testIndexOfInGenerator(org.apache.commons.functor.core.algorithm.TestIndexOfInGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.example.map.TestFixedSizeMap.testCantPutNewPairViaPutAll(org.apache.commons.functor.example.map.TestFixedSizeMap) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testForwardRange(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply(org.apache.commons.functor.TestAlgorithms) (10 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenAscending(org.apache.commons.functor.range.TestFloatRange) (13 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testForwardRange(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testCountWords(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortSingleValueList(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testStep(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (4 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testToCollection(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testToCollection(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testToCollection(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testTransformedGenerator(org.apache.commons.functor.range.TestFloatRange) (3 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testObjectConstructor(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testToCollection(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestLoopGenerator.testWrappingGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testGenerate(org.apache.commons.functor.generator.loop.TestWhileGenerate) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testGenerate(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testCountLines(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testReject2(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.core.algorithm.TestFindWithinGenerator.testDetect(org.apache.commons.functor.core.algorithm.TestFindWithinGenerator) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (5 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testGenerateListExample(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithArray(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithStop(org.apache.commons.functor.generator.util.TestEachElement) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testTransformedGenerator(org.apache.commons.functor.range.TestDoubleRange) (2 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.map.TestFixedSizeMap.testCanAssociateNewValueWithOldKeyViaPutAll(org.apache.commons.functor.example.map.TestFixedSizeMap) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testStep(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (9 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testCountWordsExcludingComments(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (6 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testTransformedGenerator(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testBuiltIn(org.apache.commons.functor.example.kata.two.TestBinaryChop) (26 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testHashcode(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testFindMatchingLines(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.core.algorithm.TestGeneratorContains.testContains(org.apache.commons.functor.core.algorithm.TestGeneratorContains) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testEquals(org.apache.commons.functor.generator.loop.TestGenerateWhile) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testEquals(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedDescending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testCountCommentLines(org.apache.commons.functor.example.lines.TestLines) (1 ms)</li><li>org.apache.commons.functor.core.algorithm.TestFoldLeft.testFoldLeft(org.apache.commons.functor.core.algorithm.TestFoldLeft) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseStep(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseStep(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepAscending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testTransformedGenerator(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithMap(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.core.algorithm.TestFindWithinGenerator.testDetectIfNone(org.apache.commons.functor.core.algorithm.TestFindWithinGenerator) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariantsAndAssertions(org.apache.commons.functor.example.kata.two.TestBinaryChop) (3 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testObjectConstructor(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testHashcode(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testSelect1(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testForwardRange(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseRange(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testHashcode(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testGenerateListExample(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testHashcode(org.apache.commons.functor.generator.loop.TestGenerateWhile) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testObjectConstructor(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseRange(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortReversed(org.apache.commons.functor.example.QuicksortExample) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.four.TestSoccer.testProcess(org.apache.commons.functor.example.kata.four.TestSoccer) (4 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testToCollection(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestLoopGenerator.testStop(org.apache.commons.functor.generator.loop.TestLoopGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testStep(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testEquals(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testSelect2(org.apache.commons.functor.TestAlgorithms) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testReject1(org.apache.commons.functor.TestAlgorithms) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApplyToGenerator(org.apache.commons.functor.TestAlgorithms) (2 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testObjectConstructor(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseRange(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testReverseStep(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedAscending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testForwardRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testGenerate(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testRun(org.apache.commons.functor.TestAlgorithms) (1 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testFindMatchingFromTail(org.apache.commons.functor.example.lines.TestLines) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestLoopGenerator.testTo(org.apache.commons.functor.generator.loop.TestLoopGenerator) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortShuffled(org.apache.commons.functor.example.QuicksortExample) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testForwardRange(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testSortSorted(org.apache.commons.functor.example.QuicksortExample) (0 ms)</li><li>org.apache.commons.functor.example.lines.TestLines.testCountCharacters(org.apache.commons.functor.example.lines.TestLines) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApply3(org.apache.commons.functor.TestAlgorithms) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestLoopGenerator.testSimpleGenerator(org.apache.commons.functor.generator.loop.TestLoopGenerator) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testGenerateListExample(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testHashcode(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter.testGenerate(org.apache.commons.functor.generator.loop.TestIteratorToGeneratorAdapter) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testEdgeCase(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.example.QuicksortExample.testTimings(org.apache.commons.functor.example.QuicksortExample) (302 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testObjectConstructor(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterative(org.apache.commons.functor.example.kata.two.TestBinaryChop) (8 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testStep(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testGenerate(org.apache.commons.functor.generator.TestFilteredGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testEdgeCase(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithList(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.generator.util.TestEachElement.testWithIterator(org.apache.commons.functor.generator.util.TestEachElement) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.four.TestWeather.testProcess(org.apache.commons.functor.example.kata.four.TestWeather) (6 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testEquals(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>

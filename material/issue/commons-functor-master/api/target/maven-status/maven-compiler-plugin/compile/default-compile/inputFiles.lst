@@ -1,0 +1,14 @@
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/NullaryPredicate.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/BinaryPredicate.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/BinaryFunctor.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/package-info.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/NullaryFunctor.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/BinaryProcedure.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/Function.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/NullaryFunction.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/NullaryProcedure.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/BinaryFunction.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/Functor.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/Predicate.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/Procedure.java
+/root/qrx/experiment/test-code-transformation/experiment/7/origin/commons-functor-master/api/target/clover/src-instrumented/org/apache/commons/functor/UnaryFunctor.java

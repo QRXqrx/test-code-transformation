@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Licensed to the Apache Software Foundation (ASF) under one or more
+     contributor license agreements.  See the NOTICE file distributed with
+     this work for additional information regarding copyright ownership.
+     The ASF licenses this file to You under the Apache License, Version 2.0
+     (the "License"); you may not use this file except in compliance with
+     the License.  You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+  -->
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/plugins/maven-changes-plugin/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>Apache Commons Functor Changes</title>
+  </properties>
+  <body>
+    <release version="1.0" date="2012-??-??" description="First release.">
+      <action issue="FUNCTOR-29" dev="kinow">
+        Drop support to serialization
+      </action>
+      <action issue="FUNCTOR-11" dev="kinow">
+        Reduce API clutter by removing or reducing scope of FunctorType.equals(FunctorType) methods
+      </action>
+      <action issue="FUNCTOR-25" dev="kinow">
+        Update site after new project structure
+      </action>
+      <action issue="FUNCTOR-14" dev="kinow">
+        Enhancements on the Generator API
+      </action>
+      <action issue="FUNCTOR-28" dev="kinow">
+        Fix checkstyle errors in the generator package
+      </action>
+      <action issue="FUNCTOR-24" dev="kinow">
+      	Change default arity of Function, Procedure and Predicate
+      </action>
+      <action issue="FUNCTOR-27" dev="kinow">
+        Add static Limit#of method to create new Limit's.
+      </action>
+      <action issue="FUNCTOR-23" dev="simonetripodi" due-to="Liviu Tudor">
+        aggregator.xml generates broken Javadoc links
+      </action>
+      <action issue="FUNCTOR-22" dev="kinow">
+        Generify ComparableComparator.
+      </action>
+      <action issue="FUNCTOR-21" dev="kinow">
+        Fix NPE in UnarySequence.
+      </action>
+      <action issue="FUNCTOR-19" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Fix checkstyle warnings
+      </action>
+      <action issue="FUNCTOR-18" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Fix duplicated entries in examples page of [functor] website, and replace &lt;br/&gt; tags in aggregator.xml
+      </action>
+      <action issue="FUNCTOR-17" dev="simonetripodi">
+        Move developers from @author tags to pom.xml
+      </action>
+      <action issue="FUNCTOR-16" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Fix checkstyle errors
+      </action>
+      <action issue="FUNCTOR-15" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Distribute tests from TestAlgorithms into several test classes under algorithm test package
+      </action>
+      <action issue="FUNCTOR-9" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Make Limit and Offset Serializable
+      </action>
+      <action issue="FUNCTOR-8" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Possible NPE in TransformedGenerator if getWrappedGenerator() is overridden to return null
+      </action>
+      <action issue="FUNCTOR-7" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Tests for generators
+      </action>
+      <action issue="FUNCTOR-5" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Complete the javadoc description of Limit
+      </action>
+      <action issue="FUNCTOR-4" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Add easily accessible, user-friendly examples
+      </action>
+      <action issue="FUNCTOR-3" dev="kinow">
+        Reduce the use of raw types in test classes.
+      </action>
+      <action issue="FUNCTOR-2" dev="simonetripodi" due-to="Bruno P. Kinoshita">
+        Improve Functor web page, removing Ant from building
+      </action>
+      <action issue="FUNCTOR-1" dev="simonetripodi" due-to="Liviu Tudor">
+        New components: summarize and aggregate
+      </action>
+    </release>
+  </body>
+</document>

@@ -1,7 +1,5 @@
 package nju.pa.transform;
 
-import com.github.javaparser.StaticJavaParser;
-import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -9,7 +7,6 @@ import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.Statement;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import nju.pa.exception.EmptyMethodBodyException;
 import nju.pa.visitor.collector.FinalStmtCollector;
@@ -19,7 +16,6 @@ import nju.pa.visitor.modifier.NewTestAdder;
 import nju.pa.visitor.modifier.OldTestRemover;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,60 +30,17 @@ import java.util.stream.Collectors;
  * @email QRXwzx@outlook.com
  * @date 2020-06-07
  */
+
 @NoArgsConstructor
-@Data
-public class TestCodeTransformer {
-
-    private String javaPath;
-    private File javaFile;
-    private CompilationUnit cu = new CompilationUnit();
-
-    private Boolean alreadyTransformed = false;
+public class TestCodeTransformer extends CodeTransformer {
 
     public TestCodeTransformer(String javaPath) {
-        this.javaPath = javaPath;
-        this.javaFile = new File(javaPath);
-        try {
-            this.cu = StaticJavaParser.parse(javaFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Error in TestCodeTransformer, constructor");
-            e.printStackTrace();
-        }
+        super(javaPath);
     }
 
-    public void setJavaPath(String javaPath) {
-        this.javaPath = javaPath;
-        this.javaFile = new File(javaPath);
-        try {
-            this.cu = StaticJavaParser.parse(javaFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Error in TestCodeTransformer, setJavaPath");
-            e.printStackTrace();
-        }
-        this.alreadyTransformed = false;
+    public TestCodeTransformer(File javaFile) {
+        super(javaFile);
     }
-
-    public void setJavaFile(File javaFile) {
-        this.javaFile = javaFile;
-        this.javaPath = javaFile.getAbsolutePath();
-        try {
-            this.cu = StaticJavaParser.parse(javaFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Error in TestCodeTransformer, setJavaFile");
-            e.printStackTrace();
-        }
-        this.alreadyTransformed = false;
-    }
-
-    public String transformToSrc() {return transformToSrc(true);}
-
-    public String transformToSrc(boolean commentOn) {
-        transform(commentOn);
-        return cu.toString();
-    }
-
-
-    public void transform() { transform(true); }
 
     private void transformOneClass(ClassOrInterfaceDeclaration aClassType, boolean commentOn) {
         // Collect all old test methods.
@@ -110,28 +63,31 @@ public class TestCodeTransformer {
      * @param commentOn Whether generated test code has comments about where the changed code come from.
      */
     public void transform(boolean commentOn) {
-        if(alreadyTransformed) return;
-        NodeList<TypeDeclaration<?>> types = cu.getTypes();
+        if(getAlreadyTransformed()) return;
+        // One compilation indicates one class java source file, which may contains more than one class.
+        NodeList<TypeDeclaration<?>> types = getCu().getTypes();
         for (TypeDeclaration<?> type : types) {
             if(type instanceof ClassOrInterfaceDeclaration) {
                 ClassOrInterfaceDeclaration classOrInterface = (ClassOrInterfaceDeclaration) type;
+                // Only process test class, which cannot be an interface or abstract class.
                 if(classOrInterface.isInterface()) {
                     String pattern = "[LOG] type[%s] in file[%s] is not a class so it cannot be a test class, pass";
-                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), getJavaPath()));
                     continue;
                 }
                 if(classOrInterface.isAbstract()) {
                     String pattern = "[LOG] type[%s] in file[%s] is an abstract class, pass";
-                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+                    System.out.println(String.format(pattern, type.getFullyQualifiedName(), getJavaPath()));
                     continue;
                 }
+                // Transform this class.
                 transformOneClass(classOrInterface, commentOn);
             } else {
                 String pattern = "[LOG] type[%s] in file[%s] is not a class or an interface, pass";
-                System.out.println(String.format(pattern, type.getFullyQualifiedName(), this.javaPath));
+                System.out.println(String.format(pattern, type.getFullyQualifiedName(), getJavaPath()));
             }
         }
-        alreadyTransformed = true;
+        setAlreadyTransformed(true);
     }
 
     // Method Transform before 20200720

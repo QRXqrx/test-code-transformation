@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1594984881654
+Build-Jdk: 1.8.0_171
+Built-By: root
+Bundle-Description: Provide the basic APIs
+Bundle-DocURL: http://commons.apache.org/proper/commons-functor/commons-
+ functor-api/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons Functor API
+Bundle-SymbolicName: org.apache.commons.functor
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.commons.functor;version="1.0.0.SNAPSHOT"
+Private-Package: groverconfig708668445760490150,instrumentation.ser
+Tool: Bnd-2.1.0.20130426-122213

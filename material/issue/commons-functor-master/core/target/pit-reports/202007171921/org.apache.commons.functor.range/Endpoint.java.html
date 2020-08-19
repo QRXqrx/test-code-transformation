@@ -1,0 +1,2097 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Endpoint.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed to the Apache Software Foundation (ASF) under one or more</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * contributor license agreements.  See the NOTICE file distributed with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * this work for additional information regarding copyright ownership.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * The ASF licenses this file to You under the Apache License, Version 2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * (the &#34;License&#34;); you may not use this file except in compliance with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * the License.  You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *      http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.commons.functor.range;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.lang3.Validate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Represent an endpoint of a range. This can be the left endpoint or the right</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * endpoint. It is also called left limit or right limit, and can be open</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * (exclusive, unbounded) or closed (inclusive, bounded).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @param &#60;T&#62; type of the value held by this endpoint</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @since 1.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version $Revision$ $Date$</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Endpoint&#60;T extends Comparable&#60;?&#62;&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The endpoint value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final T value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The endpoint bound type.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BoundType boundType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Create an endpoint.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param value value</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param boundType bound type</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Endpoint(T value, BoundType boundType) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.value = value;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.boundType = Validate.notNull(boundType, &#34;bound type must not be null&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return Object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public T getValue() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_57'>1</a>
+<span>
+1. getValue : mutated return of Object value for org/apache/commons/functor/range/Endpoint::getValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return BoundType</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BoundType getBoundType() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_64'>1</a>
+<span>
+1. getBoundType : mutated return of Object value for org/apache/commons/functor/range/Endpoint::getBoundType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return boundType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@inheritDoc}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_72'>1</a>
+<span>
+1. toString : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        String boundType = this.boundType == BoundType.OPEN ? &#34;OPEN&#34; : &#34;CLOSED&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_73'>1</a>
+<span>
+1. toString : mutated return of Object value for org/apache/commons/functor/range/Endpoint::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return &#34;Endpoint&#60;&#34; + this.value + &#34;, &#34; + boundType + &#34;&#62;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@inheritDoc}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object obj) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_81'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (obj == this) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_82'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_84'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!(obj instanceof Endpoint)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_85'>1</a>
+<span>
+1. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Endpoint&#60;?&#62; that = (Endpoint&#60;?&#62;) obj;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_88'>2</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+2. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.boundType == that.boundType</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_89'>1</a>
+<span>
+1. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                &#38;&#38; this.value.equals(that.value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * {@inheritDoc}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int hash = &#34;Endpoint&#34;.hashCode();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_98'/>
+98
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_98'>1</a>
+<span>
+1. hashCode : Replaced Shift Left with Shift Right &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        hash &#60;&#60;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_99'/>
+99
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_99'>1</a>
+<span>
+1. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        hash ^= this.value.toString().hashCode();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_100'/>
+100
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_100'>1</a>
+<span>
+1. hashCode : Replaced Shift Left with Shift Right &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        hash &#60;&#60;= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_101'/>
+101
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_101'>2</a>
+<span>
+1. hashCode : Replaced XOR with AND &rarr; SURVIVED<br/>
+2. hashCode : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        hash ^= Boolean.valueOf(this.boundType == BoundType.OPEN).hashCode();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_102'/>
+102
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_102'>1</a>
+<span>
+1. hashCode : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return hash;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Print the left endpoint and bound type.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return String</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toLeftString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_111'/>
+111
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_111'>2</a>
+<span>
+1. toLeftString : negated conditional &rarr; KILLED<br/>
+2. toLeftString : mutated return of Object value for org/apache/commons/functor/range/Endpoint::toLeftString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (this.boundType == BoundType.OPEN ? &#34;(&#34; : &#34;[&#34;) + this.value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Print the right endpoint and bound type.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return String</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toRightString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_120'>2</a>
+<span>
+1. toRightString : negated conditional &rarr; KILLED<br/>
+2. toRightString : mutated return of Object value for org/apache/commons/functor/range/Endpoint::toRightString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.value + (this.boundType == BoundType.OPEN ? &#34;)&#34; : &#34;]&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@140e41f4_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getValue<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testValue(org.apache.commons.functor.range.TestEndpoint)</span></span> mutated return of Object value for org/apache/commons/functor/range/Endpoint::getValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBoundType<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testBoundType(org.apache.commons.functor.range.TestEndpoint)</span></span> mutated return of Object value for org/apache/commons/functor/range/Endpoint::getBoundType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> mutated return of Object value for org/apache/commons/functor/range/Endpoint::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.apache.commons.functor.range.TestIntegerRange.testBoundaries(org.apache.commons.functor.range.TestIntegerRange)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_98'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced Shift Left with Shift Right &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_99'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced XOR with AND &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_100'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced Shift Left with Shift Right &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_101'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced XOR with AND &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_102'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_111'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toLeftString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toLeftString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> mutated return of Object value for org/apache/commons/functor/range/Endpoint::toLeftString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@140e41f4_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@140e41f4_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toRightString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toRightString<br/><b>Killed by : </b>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint)</span></span> mutated return of Object value for org/apache/commons/functor/range/Endpoint::toRightString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.commons.functor.range.TestCharacterRange.testReverseRange(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testDefaultStep(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testEmptyRanges(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenAscendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestEndpoint.testBoundType(org.apache.commons.functor.range.TestEndpoint) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testConstructorProhibitsNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testContainsSingleStepAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testStepChecking(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (4 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testToStringIsOverridden(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testToString(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testContainsAll(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedDescendingContains(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testEquals(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testObjectEquals(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testContainsSingleStepAscending(org.apache.commons.functor.range.TestDoubleRange) (6 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenDescendingContains(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenDescendingContains(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testObjectConstructor(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testEquals(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testGenerate(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testContainsNullOrEmpty(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testToString(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (5 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testGenerateListExample(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseStep(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedDescendingContains(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testTransformedGenerator(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testConstructorProhibitsNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedAscending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testObjectEquals(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testConstructorProhibitsNullPredicateOrNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testEquals(org.apache.commons.functor.generator.loop.TestGenerateWhile) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testEquals(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testInvalidRange(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedAscendingContains(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testToStringIsOverridden(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseStep(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseStep(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedDescendingContains(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenDescendingContains(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testStepChecking(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testBoundaries(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedAscendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testDescending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testObjectConstructor(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testForwardRange(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testStepChecking(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testHashcode(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testInvalidRange(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testHashcode(org.apache.commons.functor.generator.loop.TestGenerateWhile) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testObjectConstructor(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testReverseRange(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testContainsSingleStepDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testEquals(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenAscendingContains(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testReverseRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testConstructorProhibitsNullWrappedPredicate(org.apache.commons.functor.generator.loop.TestGenerateUntil) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenDescendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testObjectEquals(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenAscendingContains(org.apache.commons.functor.range.TestCharacterRange) (3 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testEquals(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testConstructorProhibitsNullPredicate(org.apache.commons.functor.generator.TestFilteredGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testEmptyRanges(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedDescendingContains(org.apache.commons.functor.range.TestCharacterRange) (2 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testObjectConstructor(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenDescendingContains(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testConstructorUsingSameEndpoint(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testGenerate(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testContainsNullOrEmpty(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testForwardRange(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testConstructorProhibitsNullPredicateOrNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestGenerateWhile) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedAscendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenAscendingContains(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedAscendingContains(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenClosedAscendingContains(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testGenerateListExample(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testConstructorProhibitsNullFunction(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testHashcode(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedAscendingContains(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testConstructorUsingSameEndpoint(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenAscendingContains(org.apache.commons.functor.range.TestDoubleRange) (11 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testContainsSingleStepDescending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterative(org.apache.commons.functor.example.kata.two.TestBinaryChop) (8 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedAscendingContains(org.apache.commons.functor.range.TestFloatRange) (2 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testDefaultStep(org.apache.commons.functor.range.TestIntegerRange) (4 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testEdgeCase(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testDefaultStep(org.apache.commons.functor.range.TestLongRange) (3 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testBoundaries(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestEndpoint.testToString(org.apache.commons.functor.range.TestEndpoint) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenDescendingContains(org.apache.commons.functor.range.TestFloatRange) (3 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testEquals(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testConstructorProhibitsNullPredicate(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testBoundaries(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testContainsSingleStepDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testEquals(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariants(org.apache.commons.functor.example.kata.two.TestBinaryChop) (4 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testConstructorUsingSameEndpoint(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testConstructorProhibitsNullGenerator(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testTransformedGenerator(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseStep(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testBoundaries(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testEquals(org.apache.commons.functor.generator.TestFilteredGenerator) (8 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testEmptyRanges(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testDefaultStep(org.apache.commons.functor.range.TestFloatRange) (2 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenOpenAscendingContains(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testInvalidRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testContainsNullOrEmpty(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testForwardRange(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedDescendingContains(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestEndpoint.testValue(org.apache.commons.functor.range.TestEndpoint) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenAscending(org.apache.commons.functor.range.TestFloatRange) (13 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testToStringIsOverridden(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testConstructorProhibitsNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestGenerateWhile) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenDescendingContains(org.apache.commons.functor.range.TestDoubleRange) (18 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testObjectEquals(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testForwardRange(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testGenerateListExample(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testConstructorProhibitsNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestUntilGenerate) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testStep(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedDescending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testToString(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testToCollection(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testEquals(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedDescendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedOpenAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedOpenAscendingContains(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testSingleStepDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testToCollection(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testConstructorProhibitsNullPredicate(org.apache.commons.functor.generator.loop.TestWhileGenerate) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testToCollection(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedDescending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testTransformedGenerator(org.apache.commons.functor.range.TestFloatRange) (3 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testToCollection(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testContainsAll(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testGenerate(org.apache.commons.functor.generator.loop.TestWhileGenerate) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testToStringIsOverridden(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedDescendingContains(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenAscendingContains(org.apache.commons.functor.range.TestFloatRange) (2 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testConstructorProhibitsNullWrappedGenerator(org.apache.commons.functor.generator.TestFilteredGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testStepChecking(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testTransformedGenerator(org.apache.commons.functor.range.TestDoubleRange) (2 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testSingleStepDescending(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testStep(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testRecursive(org.apache.commons.functor.example.kata.two.TestBinaryChop) (9 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenOpenAscending(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testTailRecursive2(org.apache.commons.functor.example.kata.two.TestBinaryChop) (6 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testObjectEquals(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testContainsNullOrEmpty(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testBuiltIn(org.apache.commons.functor.example.kata.two.TestBinaryChop) (26 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testDescending(org.apache.commons.functor.range.TestIntegerRange) (2 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testHashcode(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testEmptyRanges(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestEndpoint.testEquals(org.apache.commons.functor.range.TestEndpoint) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedClosedDescending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testOpenOpenDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenDescendingContains(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedDescendingContains(org.apache.commons.functor.range.TestFloatRange) (14 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testContainsSingleStepDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testInvalidRange(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testContainsSingleStepAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenDescending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testOpenClosedDescendingContains(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testInvalidRange(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testSingleStepAscending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testTransformedGenerator(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testBoundaries(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testToString(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.example.kata.two.TestBinaryChop.testIterativeWithInvariantsAndAssertions(org.apache.commons.functor.example.kata.two.TestBinaryChop) (3 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testSingleStepDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedAscendingContains(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestUntilGenerate.testHashcode(org.apache.commons.functor.generator.loop.TestUntilGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenOpenDescendingContains(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testToString(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testReverseRange(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testGenerateListExample(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testAscending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testContainsSingleStepAscending(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testClosedClosedAscending(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedAscending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testToCollection(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testEquals(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedOpenAscendingContains(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testDefaultStep(org.apache.commons.functor.range.TestCharacterRange) (2 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testContainsSingleStepDescending(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testClosedClosedAscendingContains(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testHashcode(org.apache.commons.functor.generator.TestFilteredGenerator) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testStep(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testToStringIsOverridden(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testConstructorUsingSameEndpoint(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testOpenClosedAscendingContains(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testContainsAll(org.apache.commons.functor.range.TestFloatRange) (1 ms)</li><li>org.apache.commons.functor.TestAlgorithms.testApplyToGenerator(org.apache.commons.functor.TestAlgorithms) (2 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testDescending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testReverseRange(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedDescending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testConstructorProhibitsNullPredicateOrNullWrappedGenerator(org.apache.commons.functor.generator.TestFilteredGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testReverseStep(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testOpenClosedAscending(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestWhileGenerate.testConstructorProhibitsNullPredicateOrNullWrappedGenerator(org.apache.commons.functor.generator.loop.TestWhileGenerate) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testForwardRange(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testClosedClosedAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestTransformedGenerator.testConstructorProhibitsNullWrappedGeneratorOrNullFunction(org.apache.commons.functor.generator.loop.TestTransformedGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testEmptyRanges(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testContainsNullOrEmpty(org.apache.commons.functor.range.TestDoubleRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateUntil.testConstructorProhibitsNullGeneratorOrNullWrappedPredicate(org.apache.commons.functor.generator.loop.TestGenerateUntil) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenOpenAscending(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedDescendingContains(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testConstructorUsingSameEndpoint(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestFloatRange.testClosedOpenAscendingContains(org.apache.commons.functor.range.TestFloatRange) (0 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testContainsSingleStepAscending(org.apache.commons.functor.range.TestIntegerRange) (5 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testOpenClosedDescending(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedClosedAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testClosedOpenDescendingContains(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testContainsAll(org.apache.commons.functor.range.TestIntegerRange) (1 ms)</li><li>org.apache.commons.functor.range.TestDoubleRange.testContainsAll(org.apache.commons.functor.range.TestDoubleRange) (1 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testAscending(org.apache.commons.functor.range.TestCharacterRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testEdgeCase(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.range.TestCharacterRange.testSingleStepAscending(org.apache.commons.functor.range.TestCharacterRange) (1 ms)</li><li>org.apache.commons.functor.range.TestIntegerRange.testObjectConstructor(org.apache.commons.functor.range.TestIntegerRange) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testStep(org.apache.commons.functor.range.TestLongRange) (1 ms)</li><li>org.apache.commons.functor.generator.TestFilteredGenerator.testGenerate(org.apache.commons.functor.generator.TestFilteredGenerator) (0 ms)</li><li>org.apache.commons.functor.range.TestLongRange.testStepChecking(org.apache.commons.functor.range.TestLongRange) (0 ms)</li><li>org.apache.commons.functor.generator.loop.TestGenerateWhile.testConstructorProhibitsNullPredicate(org.apache.commons.functor.generator.loop.TestGenerateWhile) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.5.2
+
+</body>
+</html>

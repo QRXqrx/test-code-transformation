@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/core/commons-functor.iml" filepath="$PROJECT_DIR$/core/commons-functor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/commons-functor-api.iml" filepath="$PROJECT_DIR$/api/commons-functor-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/build-tools/commons-functor-build-tools.iml" filepath="$PROJECT_DIR$/build-tools/commons-functor-build-tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commons-functor-parent.iml" filepath="$PROJECT_DIR$/commons-functor-parent.iml" />
+    </modules>
+  </component>
+</project>

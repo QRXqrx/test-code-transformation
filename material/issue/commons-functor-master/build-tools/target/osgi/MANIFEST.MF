@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1594984880591
+Build-Jdk: 1.8.0_171
+Built-By: root
+Bundle-Description: Provide common setup, from http://maven.apache.org/p
+ lugins/maven-checkstyle-plugin/examples/multi-module-config.html
+Bundle-DocURL: http://commons.apache.org/proper/commons-functor/commons-
+ functor-build-tools/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Commons Functor Build Tools
+Bundle-SymbolicName: org.apache.commons.functor
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.commons.functor;version="1.0.0.SNAPSHOT"
+Include-Resource: org/apache/commons/functor/license-header.txt=src/main
+ /resources/org/apache/commons/functor/license-header.txt,org/apache/com
+ mons/functor/fb-excludes.xml=src/main/resources/org/apache/commons/func
+ tor/fb-excludes.xml,org/apache/commons/functor/checkstyle.xml=src/main/
+ resources/org/apache/commons/functor/checkstyle.xml,org/apache/commons/
+ functor/checkstyle-suppressions.xml=src/main/resources/org/apache/commo
+ ns/functor/checkstyle-suppressions.xml
+Private-Package: groverconfig561937026532326084,instrumentation.ser
+Tool: Bnd-2.1.0.20130426-122213

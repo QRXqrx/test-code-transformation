@@ -1,0 +1,13 @@
+org/apache/commons/functor/Function.class
+org/apache/commons/functor/BinaryPredicate.class
+org/apache/commons/functor/UnaryFunctor.class
+org/apache/commons/functor/BinaryFunctor.class
+org/apache/commons/functor/Functor.class
+org/apache/commons/functor/NullaryFunctor.class
+org/apache/commons/functor/BinaryFunction.class
+org/apache/commons/functor/Procedure.class
+org/apache/commons/functor/Predicate.class
+org/apache/commons/functor/NullaryPredicate.class
+org/apache/commons/functor/NullaryFunction.class
+org/apache/commons/functor/NullaryProcedure.class
+org/apache/commons/functor/BinaryProcedure.class
