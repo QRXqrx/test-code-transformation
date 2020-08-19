@@ -4,7 +4,7 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.ModifierVisitor;
 import com.github.javaparser.ast.visitor.Visitable;
-import nju.pa.util.JunitAssertUtil;
+import nju.pa.util.JunitUtil;
 
 
 /**
@@ -21,8 +21,8 @@ public class JasModifier extends ModifierVisitor<Boolean> {
     public Visitable visit(ExpressionStmt n, Boolean arg) {
         super.visit(n, arg);
         // Only modify when n is a jas
-        if(JunitAssertUtil.isJunitAssertStmt(n)) {
-            NodeList<Statement> statements = JunitAssertUtil.transformJunitAssertStmt(n);
+        if(JunitUtil.isJunitAssertStmt(n)) {
+            NodeList<Statement> statements = JunitUtil.transformJunitAssertStmt(n);
             n.removeComment(); // When transform twice, parsing error will occur.
             if(statements.size() > 1) {
                 BlockStmt bs = new BlockStmt();

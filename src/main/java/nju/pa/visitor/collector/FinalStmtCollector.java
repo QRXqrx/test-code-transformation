@@ -1,9 +1,7 @@
 package nju.pa.visitor.collector;
 
-import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import nju.pa.util.JunitAssertUtil;
 import nju.pa.util.enums.JunitAssert;
 
 import java.util.List;

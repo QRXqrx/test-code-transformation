@@ -9,6 +9,7 @@ import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.Statement;
 import lombok.NoArgsConstructor;
 import nju.pa.exception.EmptyMethodBodyException;
+import nju.pa.util.Util;
 import nju.pa.visitor.collector.FinalStmtCollector;
 import nju.pa.visitor.collector.TestMethodCollector;
 import nju.pa.visitor.modifier.JasModifier;
@@ -171,7 +172,7 @@ public class TestCodeTransformer extends CodeTransformer {
         // Construct new test methods.
         NodeList<MethodDeclaration> newTMDs = new NodeList<>();
         for(int i = 0 ; i < newBodies.size() ; i++) { // Each body for one new test method.
-            SimpleName newSimpleName = toNewSimpleName(oldTMD.getName(), i);
+            SimpleName newSimpleName = Util.toNewSimpleName(oldTMD.getName(), i);
             MethodDeclaration newTMD = oldTMD.clone(); // Preserve annotation, access modifier etc.
             if(newTMD == oldTMD)
                 System.out.println("newTMD and oldTMD have the same location");
@@ -182,26 +183,5 @@ public class TestCodeTransformer extends CodeTransformer {
         return newTMDs;
     }
 
-
-    /**
-     * Name the generated test methods using old simple name and count number.
-     *
-     * @param oldSimpleName The simple name of one original test method.
-     * @param cnt The index of the generated test methods in new test methods list.
-     * @return New simple name for transformed test methods. New name is like: OldSimpleName_cnt.
-     */
-    private SimpleName toNewSimpleName(SimpleName oldSimpleName, int cnt) {
-        if(cnt == 0) // For the first generated test method, don't add cnt for it.
-            return oldSimpleName;
-        return toNewSimpleName(oldSimpleName.asString(), cnt);
-    }
-
-    private SimpleName toNewSimpleName(String oldSimpleNameStr, int cnt) {
-        if(cnt == 0)
-            return new SimpleName(oldSimpleNameStr);
-        StringBuilder newNameBuilder = new StringBuilder(oldSimpleNameStr.length() + 5);
-        newNameBuilder.append(oldSimpleNameStr).append("_").append(cnt);
-        return new SimpleName(newNameBuilder.toString());
-    }
 
 }

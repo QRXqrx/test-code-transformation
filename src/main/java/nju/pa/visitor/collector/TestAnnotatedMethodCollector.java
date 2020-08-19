@@ -7,22 +7,20 @@ import nju.pa.util.JunitUtil;
 import java.util.List;
 
 /**
+ * This collector will collect methods annotated by @Test (Junit test annotation)
+ * The collection condition is not as strict as TestMethodCollector.
  *
- * TestMethodCollector can collect test method from cu. It extends VoidVisitorAdapter
- * And treat MethodDeclaration as targets.
- * @see VoidVisitorAdapter
- * @see MethodDeclaration
+ * @see TestMethodCollector
  *
  * @author QRX
  * @email QRXwzx@outlook.com
- * @date 2020-04-22
+ * @date 2020-08-19
  */
-public class TestMethodCollector extends VoidVisitorAdapter<List<MethodDeclaration>> {
-
+public class TestAnnotatedMethodCollector extends VoidVisitorAdapter<List<MethodDeclaration>> {
     @Override
     public void visit(MethodDeclaration md, List<MethodDeclaration> list) {
         super.visit(md, list);
-        if(JunitUtil.isTestAnnotatedMethod(md) && JunitUtil.hasAssert(md))
+        if(JunitUtil.isTestAnnotatedMethod(md))
             list.add(md);
     }
 }
